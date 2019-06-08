@@ -57,7 +57,7 @@ namespace AlgoDatSS19
       {
         if (array[i] == x)
         {
-          for (int pos = 0; pos < array.Length; pos++)
+          for (int pos = i; pos < array.Length - 1; pos++)
           {
             //an Stelle x wird der letzte gefundene Wert eingetragen 
             array[i] = pos - 1;
