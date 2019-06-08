@@ -43,9 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDictionary.cs" />
+    <Compile Include="IMultiSet.cs" />
+    <Compile Include="MultiSetSortedArray.cs" />
     <Compile Include="MultiSetUnsortedArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SetSortedArray.cs" />
+    <Compile Include="SetUnsortedArray.cs" />
+    <Compile Include="SupportArray.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

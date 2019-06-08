@@ -8,5 +8,6 @@ namespace AlgoDatSS19
 {
   class SetSortedArray
   {
+
   }
 }
