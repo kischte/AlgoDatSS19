@@ -13,26 +13,25 @@ namespace AlgoDatSS19
     public new bool Insert(int x)
     {
       //leeres Element x wird nicht eingefügt
-      if (x == 0) 
+      if (x == 0)
       {
         return false;
       }
 
       //Wenn Element x schon vorhanden, wird es nicht neu hinzugefügt
-      if (Search(x)) 
+      if (Search(x))
       {
         return false;
       }
 
-
-      for (int i = 0; i < array.Length; i++) 
+      //Sortiertes Einfügen von Element x an entprechender Stelle 
+      for (int i = 0; i < array.Length; i++)
       {
         if (array[i] > x)
         {
-        //Sortiertes Einfügen von Element x an entprechender Stelle 
           for (int pos = array.Length - 1; pos >= i + 1; pos--)
           {
-          //Alle Elemente rechts von x um eins nach rechts verschieben
+            //Alle Elemente rechts von x um eins nach rechts verschieben
             array[pos] = array[pos - 1];
           }
           array[i] = x;
@@ -43,9 +42,7 @@ namespace AlgoDatSS19
           array[i] = x;
           return true;
         }
-
       }
-
       return false;
     }
 
