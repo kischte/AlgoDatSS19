@@ -47,6 +47,7 @@
     <Compile Include="IDictionary.cs" />
     <Compile Include="IMultiSet.cs" />
     <Compile Include="IMultiSetSorted.cs" />
+    <Compile Include="ISet.cs" />
     <Compile Include="ISetSorted.cs" />
     <Compile Include="MultiSetSortedArray.cs" />
     <Compile Include="MultiSetUnsortedArray.cs" />
