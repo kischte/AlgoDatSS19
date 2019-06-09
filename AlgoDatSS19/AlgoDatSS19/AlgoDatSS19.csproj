@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HashTable.cs" />
     <Compile Include="IDictionary.cs" />
     <Compile Include="IMultiSet.cs" />
     <Compile Include="IMultiSetSorted.cs" />
