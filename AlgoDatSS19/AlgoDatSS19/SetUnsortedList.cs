@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgoDSPraktikum
+namespace AlgoDatSS19
 {
-    class SetUnsortedList : BaseLinkedList, ISet
+    class SetUnsortedList : SupportList, ISet
     {
-        public override bool Insert(int element)
+        public override bool Insert(int x)
         {
-            if (!Search(element))
+            if (!Search(x))
             {
-                Enque(element);
+                Enque(x);
                 return true;
             }
             return false;
