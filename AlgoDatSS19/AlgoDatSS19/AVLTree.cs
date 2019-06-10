@@ -29,7 +29,7 @@ namespace AlgoDatSS19
         }       
 
         // Links Rotation
-        public void LeftRotation(Node n)
+        protected void LeftRotation(Node n)
         {
             Node temp; 
 
@@ -79,7 +79,7 @@ namespace AlgoDatSS19
         }
 
         // Rechts Rotation
-        public void RightRotation(Node n)
+        protected void RightRotation(Node n)
         {
             Node temp;
             if (n != null)
@@ -128,7 +128,7 @@ namespace AlgoDatSS19
         }
 
         // Rechts-Links Rotation
-        public void RightLeftRotation(Node n)
+        protected void RightLeftRotation(Node n)
         {
             if(n != null)
             {
@@ -145,7 +145,7 @@ namespace AlgoDatSS19
         }
 
         // Links-Rechts Rotation
-        public void LeftRightRotation(Node n)
+        protected void LeftRightRotation(Node n)
         {
             if (n != null)
             {
