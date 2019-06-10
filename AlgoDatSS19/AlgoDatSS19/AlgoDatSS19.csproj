@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HashTable.cs" />
+    <Compile Include="HashSet.cs" />
     <Compile Include="IDictionary.cs" />
     <Compile Include="IMultiSet.cs" />
     <Compile Include="IMultiSetSorted.cs" />
@@ -51,11 +51,14 @@
     <Compile Include="ISetSorted.cs" />
     <Compile Include="MultiSetSortedArray.cs" />
     <Compile Include="MultiSetUnsortedArray.cs" />
+    <Compile Include="MultiSetUnsortedList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetSortedArray.cs" />
     <Compile Include="SetUnsortedArray.cs" />
+    <Compile Include="SetUnsortedList.cs" />
     <Compile Include="SupportArray.cs" />
+    <Compile Include="SupportList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
