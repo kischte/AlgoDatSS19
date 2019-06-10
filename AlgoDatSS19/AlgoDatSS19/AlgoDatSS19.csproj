@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AVLTree.cs" />
+    <Compile Include="BinSearchTree.cs" />
     <Compile Include="HashSet.cs" />
     <Compile Include="IDictionary.cs" />
     <Compile Include="IMultiSet.cs" />
@@ -59,6 +61,7 @@
     <Compile Include="SetUnsortedList.cs" />
     <Compile Include="SupportArray.cs" />
     <Compile Include="SupportList.cs" />
+    <Compile Include="Treap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
