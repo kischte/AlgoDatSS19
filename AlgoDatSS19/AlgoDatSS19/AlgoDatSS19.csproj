@@ -66,6 +66,7 @@
     <Compile Include="List\SupportList.cs" />
     <Compile Include="Treap.cs" />
     <Compile Include="Node.cs" />
+    <Compile Include="SetSortedLinkedList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
