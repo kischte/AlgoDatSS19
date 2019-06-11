@@ -4,7 +4,7 @@
     {
         public override bool Insert(int x)
         {
-            Enque(x);
+            Enque(x);     //als letztes Element einfügen
             return true;
         }
     }
