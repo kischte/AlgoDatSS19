@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="AVLTree.cs" />
     <Compile Include="BinSearchTree.cs" />
-    <Compile Include="HashSet.cs" />
     <Compile Include="HashTabQuadProb.cs" />
     <Compile Include="HashTabSepChain.cs" />
     <Compile Include="IDictionary.cs" />

@@ -79,7 +79,7 @@ class HashTabQuadProb
         }
         return isOpen;
     }
-    public bool remove(int key)
+    public bool delete(int key)
     {
         int hash = key % maxSize;
         while (table[hash] != null && table[hash].getkey() != key)
