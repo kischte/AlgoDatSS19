@@ -213,7 +213,7 @@ namespace AlgoDatSS19
           case 4:
             Console.WriteLine("Es wurde ISetSorted gewählt");
             Console.WriteLine("Auswahl des Wörterbuchs");
-            Console.WriteLine("(1) SetSortedList");
+            Console.WriteLine("(1) SetSortedLinkedList");
             Console.WriteLine("(2) SetSortedArray");
             Console.WriteLine("(3) binärer Suchbaum");
             Console.WriteLine("(4) AVL Baum");
@@ -246,8 +246,8 @@ namespace AlgoDatSS19
             switch (eingabe)
             {
               case 1:
-                Console.WriteLine("Es wurde SetSortedList gewählt");
-                idict = new SetSortedList();
+                Console.WriteLine("Es wurde SetSortedLinkedList gewählt");
+                idict = new SetSortedLinkedList();
                 break;
               case 2:
                 Console.WriteLine("Es wurde SetSortedArray gewählt");
