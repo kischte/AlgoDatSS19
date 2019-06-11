@@ -8,5 +8,6 @@ namespace AlgoDatSS19
 {
     interface ISet:IMultiSet
     {
+       bool Insert(int x);
     }
 }
