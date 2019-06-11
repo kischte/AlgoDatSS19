@@ -212,8 +212,9 @@ namespace AlgoDatSS19
             
             Console.WriteLine("Das zu löschende Element ({0}) hatte ZWEI Nachfolger und wurde gelöscht",x);
             return true; 
+        }
 
-            // Hilfsfunktion für das Löschen mit ZWEI Nachfolgern aus dem Skript
+        // Hilfsfunktion für das Löschen mit ZWEI Nachfolgern aus dem Skript
             public void DelSymPred(Node a)
             {
             Node b, c;
@@ -236,7 +237,6 @@ namespace AlgoDatSS19
             }
             a.Element = c.Element;
             }
-        }
 
         // Ausgabefunktion für Binäre- und AVL-Bäume
         public virtual void Print()
