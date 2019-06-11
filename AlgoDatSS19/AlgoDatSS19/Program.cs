@@ -24,124 +24,54 @@ namespace AlgoDatSS19
 
         int eingabe = -1;
 
-        bool eingabeGueltig = false;
-        while (!eingabeGueltig)
-        {
-          try
-          {
-            eingabe = Convert.ToInt32(Console.ReadLine());
-            while (eingabe > 5 || eingabe < 1)
-            {
-              Console.WriteLine("Ungültige Eingabe, bitte Zahl von 1-5 eingeben");
-              eingabe = Convert.ToInt32(Console.ReadLine());
-            }
-            eingabeGueltig = true;
-          }
-          catch (OverflowException)
-          {
-            Console.WriteLine("{0} ist zu groß, bitte neue Zahl eingeben!", eingabe);
-          }
-          catch (FormatException)
-          {
-            Console.WriteLine("Es wurde keine Zahl eingegeben, bitte neue Zahl eingeben");
-          }
-        }
         if (eingabe == 5)
         {
-          eingabeGueltig = true;
           run = false;
           break;
         }
         switch (eingabe)
         {
           case 1:
-            Console.WriteLine("Es wurde IMultiSet gewählt");
-            Console.WriteLine("Auswahl des Wörterbuchs");
-            Console.WriteLine("(1) MultiSetUnsortedLinkedList");
-            Console.WriteLine("(2) MultiSetUnsortedArray");
-
-            eingabeGueltig = false;
-            while (!eingabeGueltig)
-            {
-              try
-              {
-                eingabe = Convert.ToInt32(Console.ReadLine());
-                while (eingabe > 2 || eingabe < 1)
-                {
-                  Console.WriteLine("Ungültige Eingabe, bitte Zahl von 1-2 eingeben");
-                  eingabe = Convert.ToInt32(Console.ReadLine());
-                }
-                eingabeGueltig = true;
-              }
-              catch (OverflowException)
-              {
-                Console.WriteLine("{0} ist zu groß, bitte neue Zahl eingeben!", eingabe);
-              }
-              catch (FormatException)
-              {
-                Console.WriteLine("Es wurde keine Zahl eingegeben, bitte neue Zahl eingeben");
-              }
-            }
+            Console.WriteLine("Sie haben IMultiSet ausgewählt");
+            Console.WriteLine("Wählen Sie ein Dictionary aus:");
+            Console.WriteLine("1. MultiSetUnsortedLinkedList");
+            Console.WriteLine("2. MultiSetUnsortedArray");
 
             //Weitere Auswahl
             switch (eingabe)
             {
               case 1:
-                Console.WriteLine("Es wurde MultiSetUnsortedList gewählt");
+                Console.WriteLine("Sie haben MultiSetUnsortedLinkedList ausgewählt");
                 idict = new MultiSetUnsortedLinkedList();
                 break;
               case 2:
-                Console.WriteLine("Es wurde MultiSetUnsortedArray gewählt");
-                Console.WriteLine("Wieviele Werte sollen gespeichert werden?");
+                Console.WriteLine("Sie haben MultiSetUnsortedArray ausgewählt");
+                Console.WriteLine("Wie viele Werte möchten Sie speichern?");
                 arraySize = Convert.ToInt32(Console.ReadLine());
                 idict = new MultiSetUnsortedArray(arraySize);
                 break;
               default:
-                Console.WriteLine("Ungültige Eingabe");
+                Console.WriteLine("Eingabe ist nicht gültig");
                 break;
-
             }
             break;
 
           case 2:
-            Console.WriteLine("Es wurde IMultiSetSorted gewählt");
-            Console.WriteLine("Auswahl des Wörterbuchs");
-            Console.WriteLine("(1) MultiSetSortedList");
-            Console.WriteLine("(2) MultiSetSortedArray");
-
-            eingabeGueltig = false;
-            while (!eingabeGueltig)
-            {
-              try
-              {
-                eingabe = Convert.ToInt32(Console.ReadLine());
-                while (eingabe > 2 || eingabe < 1)
-                {
-                  Console.WriteLine("Ungültige Eingabe, bitte Zahl von 1-2 eingeben");
-                  eingabe = Convert.ToInt32(Console.ReadLine());
-                }
-                eingabeGueltig = true;
-              }
-              catch (OverflowException)
-              {
-                Console.WriteLine("{0} ist zu groß, bitte neue Zahl eingeben!", eingabe);
-              }
-              catch (FormatException)
-              {
-                Console.WriteLine("Es wurde keine Zahl eingegeben, bitte neue Zahl eingeben");
-              }
-            }
+            Console.WriteLine("Sie haben IMultiSetSorted ausgewählt");
+            Console.WriteLine("Wählen Sie ein Dictionary aus:");
+            Console.WriteLine("1. MultiSetSortedLinkedList");
+            Console.WriteLine("2. MultiSetSortedArray");
 
             //weitere Auswahl
             switch (eingabe)
             {
               case 1:
-                Console.WriteLine("Es wurde MultiSetSortedList gewählt");
+                Console.WriteLine("Sie haben MultiSetSortedLinkedList ausgewählt");
                 idict = new MultiSetSortedLinkedList();
                 break;
               case 2:
-                Console.WriteLine("Es wurde MultiSetSortedArray gewählt");
-                Console.WriteLine("Wieviele Werte sollen gespeichert werden?");
+                Console.WriteLine("Sie haben MultiSetSortedArray ausgewählt");
+                Console.WriteLine("Wieviele Werte möchten Sie speichern?");
                 arraySize = Convert.ToInt32(Console.ReadLine());
                 idict = new MultiSetSortedArray(arraySize);
                 break;
@@ -149,122 +79,76 @@ namespace AlgoDatSS19
             break;
 
           case 3:
-            Console.WriteLine("Es wurde ISet gewählt");
-            Console.WriteLine("Auswahl des Wörterbuchs");
-            Console.WriteLine("(1) SetUnsortedList");
-            Console.WriteLine("(2) SetUnsortedArray");
-            Console.WriteLine("(3) HashTableQuadProb");
-            Console.WriteLine("(4) HashTableSepChain");
-
-            eingabeGueltig = false;
-            while (!eingabeGueltig)
-            {
-              try
-              {
-                eingabe = Convert.ToInt32(Console.ReadLine());
-                while (eingabe > 4 || eingabe < 1)
-                {
-                  Console.WriteLine("Ungültige Eingabe, bitte Zahl von 1-4 eingeben");
-                  eingabe = Convert.ToInt32(Console.ReadLine());
-                }
-                eingabeGueltig = true;
-              }
-              catch (OverflowException)
-              {
-                Console.WriteLine("{0} ist zu groß, bitte neue Zahl eingeben!", eingabe);
-              }
-              catch (FormatException)
-              {
-                Console.WriteLine("Es wurde keine Zahl eingegeben, bitte neue Zahl eingeben");
-              }
-            }
+            Console.WriteLine("Sie haben ISet ausgewählt");
+            Console.WriteLine("Wählen Sie ein Dictionary aus:");
+            Console.WriteLine("1. SetUnsortedLinkedList");
+            Console.WriteLine("2. SetUnsortedArray");
+            Console.WriteLine("3. HashTableQuadProb");
+            Console.WriteLine("4. HashTableSepChain");
 
             //weitere Auswahl
             switch (eingabe)
             {
               case 1:
-                Console.WriteLine("Es wurde SetUnsortedLinkedList gewählt");
+                Console.WriteLine("Sie haben SetUnsortedLinkedList ausgewählt");
                 idict = new SetUnsortedLinkedList();
                 break;
               case 2:
-                Console.WriteLine("Es wurde SetUnsortedArray gewählt");
-                Console.WriteLine("Wieviele Werte sollen gespeichert werden?");
+                Console.WriteLine("Sie haben SetUnsortedArray ausgewählt");
+                Console.WriteLine("Wieviele Werte möchten Sie speichern?");
                 arraySize = Convert.ToInt32(Console.ReadLine());
                 idict = new SetUnsortedArray(arraySize);
                 break;
               case 3:
-                Console.WriteLine("Es wurde HashTableQuadProb gewählt");
+                Console.WriteLine("Sie haben HashTableQuadProb ausgewählt");
                 idict = new HashTabQuadProb();
                 break;
               case 4:
-                Console.WriteLine("Es wurde HashTableSepChain gewählt");
+                Console.WriteLine("Sie haben HashTableSepChain ausgewählt");
                 idict = new HashTabSepChain();
                 break;
               default:
-                Console.WriteLine("Ungültige Eingabe");
+                Console.WriteLine("Eingabe ist nicht gültig");
                 break;
             }
             break;
 
           case 4:
-            Console.WriteLine("Es wurde ISetSorted gewählt");
-            Console.WriteLine("Auswahl des Wörterbuchs");
+            Console.WriteLine("Sie haben ISetSorted ausgewählt");
+            Console.WriteLine("Wählen Sie ein Dictionary aus:");
             Console.WriteLine("1. SetSortedLinkedList");
             Console.WriteLine("2. SetSortedArray");
             Console.WriteLine("3. binärer Suchbaum");
             Console.WriteLine("4. AVL Baum");
             Console.WriteLine("5. Treap");
 
-            //eingabe = Convert.ToInt32(Console.ReadLine());
-            eingabeGueltig = false;
-            while (!eingabeGueltig)
-            {
-              try
-              {
-                eingabe = Convert.ToInt32(Console.ReadLine());
-                while (eingabe > 5 || eingabe < 1)
-                {
-                  Console.WriteLine("Ungültige Eingabe, bitte Zahl von 1-5 eingeben");
-                  eingabe = Convert.ToInt32(Console.ReadLine());
-                }
-                eingabeGueltig = true;
-              }
-              catch (OverflowException)
-              {
-                Console.WriteLine("{0} ist zu groß, bitte neue Zahl eingeben!", eingabe);
-              }
-              catch (FormatException)
-              {
-                Console.WriteLine("Es wurde keine Zahl eingegeben, bitte neue Zahl eingeben");
-              }
-            }
             //weitere Auswahl
             switch (eingabe)
             {
               case 1:
-                Console.WriteLine("Es wurde SetSortedLinkedList gewählt");
+                Console.WriteLine("Sie haben SetSortedLinkedList ausgewählt");
                 idict = new SetSortedLinkedList();
                 break;
               case 2:
-                Console.WriteLine("Es wurde SetSortedArray gewählt");
-                Console.WriteLine("Wieviele Werte sollen gespeichert werden?");
+                Console.WriteLine("Sie haben SetSortedArray ausgewählt");
+                Console.WriteLine("Wie viele Werte möchten Sie speichern?");
                 arraySize = Convert.ToInt32(Console.ReadLine());
                 idict = new SetSortedArray(arraySize);
                 break;
               case 3:
-                Console.WriteLine("Es wurde Binary Search Tree gewählt");
+                Console.WriteLine("Sie haben Binary Search Tree ausgewählt");
                 idict = new BinSearchTree();
                 break;
               case 4:
-                Console.WriteLine("Es wurde AVL Tree gewählt");
+                Console.WriteLine("Sie haben AVL Tree ausgewählt");
                 idict = new AVLTree();
                 break;
               case 5:
-                Console.WriteLine("Es wurde Treap gewählt");
+                Console.WriteLine("Sie haben Treap ausgewählt");
                 idict = new Treap();
                 break;
               default:
-                Console.WriteLine("Ungültige Eingabe");
+                Console.WriteLine("Eingabe ist nicht gültig");
                 break;
             }
             break;
@@ -275,12 +159,12 @@ namespace AlgoDatSS19
         {
           //Auswahlebene (Aktionen)
           Console.WriteLine();
-          Console.WriteLine("Bitte Aktion wählen:");
-          Console.WriteLine("(I)nsert");
-          Console.WriteLine("(S)earch");
-          Console.WriteLine("(D)elete");
-          Console.WriteLine("(P)rint");
-          Console.WriteLine("(Z)urück zum Hauptmenü");
+          Console.WriteLine("Bitte wählen Sie eine Funktion aus:");
+          Console.WriteLine("1. Insert");
+          Console.WriteLine("2. Search");
+          Console.WriteLine("3. Delete");
+          Console.WriteLine("4. Print");
+          Console.WriteLine("5. Zurück zum Menü");
 
           string aktion = Console.ReadLine();
           bool eingGueltig = false;
@@ -291,35 +175,16 @@ namespace AlgoDatSS19
           switch (aktion)
           {
             //Aktion Insert
-            case "i":
-            case "I":
-              Console.WriteLine("Es wurde Insert gewählt");
-              Console.WriteLine("Bitte Wert eingeben: ");
+            case "1":
+              Console.WriteLine("Sie haben Insert ausgewählt");
+              Console.WriteLine("Geben Sie bitte einen Wert ein: ");
 
-
-              eingGueltig = false;
-              while (!eingGueltig)
-              {
-                try
-                {
-                  wert = Convert.ToInt32(Console.ReadLine());
-                  eingGueltig = true;
-                }
-                catch (OverflowException)
-                {
-                  Console.WriteLine("{0} ist zu groß, bitte neue Zahl eingeben!", wert);
-                }
-                catch (FormatException)
-                {
-                  Console.WriteLine("Es wurde keine Zahl eingegeben, bitte neue Zahl eingeben");
-                }
-              }
               feedback = idict.Insert(wert); //Hier wird feedback gesetzt ob die Aktion erfolgreich war oder nicht
 
               //Zahl existiert bereits NUR FÜR SET; NICHT MULTISET
               if (feedback == false)
               {
-                Console.WriteLine("Die eingegebene Zahl existiert bereits");
+                Console.WriteLine("Die eingegebene Zahl ist bereits vorhanden!");
               }
               else
               {
@@ -328,84 +193,47 @@ namespace AlgoDatSS19
               break;
 
             //Aktion Search
-            case "s":
-            case "S":
-              Console.WriteLine("Es wurde Search gewählt");
-              Console.WriteLine("Bitte gesuchte Zahl eingeben");
-              eingGueltig = false;
-              while (!eingGueltig)
-              {
-                try
-                {
-                  wert = Convert.ToInt32(Console.ReadLine());
-                  eingGueltig = true;
-                }
-                catch (OverflowException)
-                {
-                  Console.WriteLine("{0} ist zu groß, bitte neue Zahl eingeben!", wert);
-                }
-                catch (FormatException)
-                {
-                  Console.WriteLine("Es wurde keine Zahl eingegeben, bitte neue Zahl eingeben");
-                }
-                feedback = idict.Search(wert);
+            case "2":
+              Console.WriteLine("Sie haben Search ausgewählt");
+              Console.WriteLine("Bitte geben Sie die Zahl ein, die gesucht werden soll:");
 
-              }
               if (feedback == true)
               {
-                Console.WriteLine("Zahl {0} befindet sich in der Struktur", wert);
+                Console.WriteLine("Zahl {0} wurde gefunden:", wert);
               }
               else
-                Console.WriteLine("Zahl {0} wurde nicht in der Struktur gefunden", wert);
+                Console.WriteLine("Zahl {0} wurde nicht gefunden:", wert);
               break;
 
             //Aktion Delete
-            case "d":
-            case "D":
-              Console.WriteLine("Es wurde Delete gewählt");
-              Console.WriteLine("Bitte zu löschende Zahl eingeben");
-              eingGueltig = false;
-              while (!eingGueltig)
+            case "3":
+              Console.WriteLine("Sie haben Delete ausgewählt");
+              Console.WriteLine("Bitte geben Sie die Zahl ein, die gelöscht werden soll:");
+
+              feedback = idict.Delete(wert);
+              if (feedback)
               {
-                try
-                {
-                  wert = Convert.ToInt32(Console.ReadLine());
-                  eingGueltig = true;
-                }
-                catch (OverflowException)
-                {
-                  Console.WriteLine("{0} ist zu groß, bitte neue Zahl eingeben!", wert);
-                }
-                catch (FormatException)
-                {
-                  Console.WriteLine("Es wurde keine Zahl eingegeben, bitte neue Zahl eingeben");
-                }
-                feedback = idict.Delete(wert);
-                if (feedback)
-                {
-                  Console.WriteLine("Es wurde {0} aus der Struktur entfernt", wert);
-                }
-                else
-                  Console.WriteLine("{0} wurde nicht in der Struktur gefunden", wert);
+                Console.WriteLine("Die Zahl {0} wurde gelöscht", wert);
               }
+              else
+                Console.WriteLine("Die Zahl {0} wurde nicht gefunden.", wert);
+
               break;
 
             //Aktion Print
-            case "p":
-            case "P":
-              Console.WriteLine("Es wurde Print gewählt");
+            case "4":
+              Console.WriteLine("Sie haben Print ausgewählt");
               idict.Print();
               break;
 
             //Aktion Zurück
-            case "z":
-            case "Z":
-              Console.WriteLine("Es wurde Zurück gewählt");
+            case "5":
+              Console.WriteLine("Sie haben Zurück ausgewählt");
               agieren = false;
               break;
 
             default:
-              Console.WriteLine("Ungültige Eingabe");
+              Console.WriteLine("Eingabe ist nicht gültig");
               break;
 
           }
