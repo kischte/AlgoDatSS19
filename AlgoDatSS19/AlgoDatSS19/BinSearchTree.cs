@@ -288,7 +288,7 @@ namespace AlgoDatSS19
         }
 
         //Hilfsfunktion für TrennzeichenEinfuegen um korrekte Anzahl der Trennstriche zu ermitteln
-        public int GetHeight(Node n) // n = current
+        public virtual int GetHeight(Node n) // n = current
         {
             int Height = 0;
 
