@@ -10,12 +10,12 @@ namespace AlgoDatSS19
     {
         public override bool Insert(int x)
         {
-            if (!Search(x))
+            if (!Search(x))   //wenn Element nicht gefunden
             {
-                Enque(x);
+                Enque(x);     //am Ende der Liste einreihen
                 return true;
             }
-            return false;
+            return false;     //Element schon vorhanden, nicht speichern
         }
     }
 }
