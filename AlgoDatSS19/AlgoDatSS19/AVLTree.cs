@@ -11,7 +11,7 @@ namespace AlgoDatSS19
         // Einfügefunktion
         public override bool Insert(int x)
         {
-            bool hinzugefuegt = false, 
+            bool hinzugefuegt = false; 
             if (base.Insert(x))
             {
                 hinzugefuegt = true; 
@@ -220,7 +220,7 @@ namespace AlgoDatSS19
                     // 3. Fall: Rechts-Links-Rotation erforderlich (a++ und b- (a vater, b kind))
                     if (pointer.BalanceFaktor == 2 && GetBalanceFaktor(pointer.Right.Left, pointer.Right.Right) ==1)
                     {
-                        Console.WriteLine("Der Baum ist unausgeglichen (rechtslastig), es erfolgt eine Rechts-Links Rotation um ({0})", pointer.Right.Element)
+                        Console.WriteLine("Der Baum ist unausgeglichen (rechtslastig), es erfolgt eine Rechts-Links Rotation um ({0})", pointer.Right.Element);
                         RightLeftRotation(pointer.Right);
                         return; 
                     }
