@@ -175,6 +175,7 @@ namespace AlgoDatSS19
             return geloescht;
         }
 
+        // Höhe bis zu aktueller Node errechnen
         public override int GetHeight(Node n)
         {
             if (n != null)
@@ -195,7 +196,7 @@ namespace AlgoDatSS19
                 if (pointer.BalanceFaktor < -1)
                 {
                     // 1. Fall: Links-Rechts Rotation erforderlich (a-- und b+ (a vater, b kind))
-                    if (pointer.BalanceFaktor == -2 && GetBalanceFaktor(pointer.Left.Right, pointer.Left.Left) >0)
+                    if (pointer.BalanceFaktor == -2 && GetBalanceFaktor(pointer.Left.Right, pointer.Left.Left) > 0)
                     {
                         Console.WriteLine("Der Baum ist unausgeglichen (linkslastig), es erfolgt eine Links-Rechts Rotation um ({0})", pointer.Left.Element);
                         LeftRightRotation(pointer.Left);
@@ -233,7 +234,6 @@ namespace AlgoDatSS19
 
                 // Pointer durch AVL Baum nach oben navigieren
                 pointer = pointer.Parent;
-                return;
             }
         }
 
