@@ -61,25 +61,23 @@ namespace AlgoDatSS19
 
             if (root == null)       //Wenn Liste leer ist
             {
-                root = new LElement(x);
+                root = newElement;
                 return;
             }
 
             //Vor dem ersten x einfügen
-            if (newElement.x < root.x)
+            if (newElement.x <= root.x)
             {
-
                 newElement.next = root;
                 root = newElement;
                 return;
-
             }
 
 
             //Stelle zum Einfügen suchen
             LElement current = root;
 
-            while (current.next != null && newElement.x > current.x)
+            while (current.next != null && newElement.x >= current.x)
             {
                 current = current.next;
             }
@@ -92,7 +90,7 @@ namespace AlgoDatSS19
         //löschen eines Elementes
         public bool Delete(int x)
         {
-            if (Search(x) == true)           //wenn x gefunden wurde, dann
+            if (Search(x) == true)           //wenn x gefunden wurde
             {
                 LElement current = root;
                 LElement previous = null;
