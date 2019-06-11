@@ -23,7 +23,7 @@ namespace AlgoDatSS19
             // Prüfen ob Baum existiert, falls nein return false
             if (root == null)
             {
-                Console.WriteLine("Der Baum existiert noch nicht.")
+                Console.WriteLine("Der Baum existiert noch nicht.");
                 return false; 
             }
 
