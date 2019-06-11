@@ -1,9 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace AlgoDatSS19
 {
   class SetSortedArray : MultiSetSortedArray, ISetSorted
@@ -24,7 +18,7 @@ namespace AlgoDatSS19
         return false;
       }
 
-      //Sortiertes Einfügen von Element x an entprechender Stelle 
+      //Sortiertes Einfügen von Element x an entprechender Stelle
       for (int i = 0; i < array.Length; i++)
       {
         if (array[i] > x)
