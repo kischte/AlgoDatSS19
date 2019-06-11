@@ -183,16 +183,16 @@ namespace AlgoDatSS19
         {
             if (n != null)
             {
-                return -1; 
+                return Math.Max(GetHeight(n.Left), GetHeight(n.Right)) + 1;
             }
-            return Math.Max(GetHeight(n.Left), GetHeight(n.Right)) + 1;
+            return 0;
         }
 
         public void Reorganisieren(Node pointer)
         {
             while (pointer != null)
             {
-                // Prüfen des Balancefaktors und Reorganisation des Baumes FALLS Ausgleichsbedingung verletzt
+                // Im Folgenden: Prüfen des Balancefaktors und Reorganisation des Baumes FALLS Ausgleichsbedingung verletzt
                 pointer.BalanceFaktor = GetBalanceFaktor(pointer.Right, pointer.Left);
 
                 // Ausgleichsbedingung verletzt, Baum ist Linkslastig 
@@ -236,7 +236,8 @@ namespace AlgoDatSS19
                 }
 
                 // Pointer durch AVL Baum nach oben navigieren
-                pointer = pointer.Parent; 
+                pointer = pointer.Parent;
+                return;
             }
         }
 
