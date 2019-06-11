@@ -120,6 +120,8 @@ namespace AlgoDatSS19
         // Löschfunktion
         public virtual bool Delete(int x)
         {
+            int temp;
+
             // Prüfen ob zu löschendes Element im Baum existiert
 
             // Wenn Element nicht gefunden --> nichts löschen
@@ -181,23 +183,76 @@ namespace AlgoDatSS19
                     return true; 
                 }
 
-                // zu löschender Knoten hat rechts einen Nachfolger
-                if(current.Right != null)
+                // Prüfen ob Current einen "Bruder" hat, sprich Knoten auf gleicher Höhe im anderen Teilbaum (Von current.Parent ausgehend)
+                if (current.Parent.Right != null)
                 {
-                    current.Right.Parent = current.Parent; // Verbinde Kind mit Elternelement von Current
-                    current.Right = null; 
+                    if (current.Parent.Left != null && current == current.Parent.Right)   // 1. Variante: current hat einen linken Bruderknoten
+                    {
+                       // Prüfen welche Seite der Nachfolger von current (zu löschendem Element) ist
+                        if (current.Right != null)  // Falls current Nachfolger rechts ist
+                        {
+                            current.Parent.Right = current.Right; // Neuen Kindknoten dem Vaterknoten zuweisen
+                            current.Right.Parent = current.Parent; // Neuen Vaterknoten dem Nachfolgerknoten zuweisen
+                            return true;
+                        }
+                        if (current.Left != null)   // Falls current Nachfolger links ist
+                        {
+                            current.Parent.Right = current.Left; // Neuen Kindknoten dem Vaterknoten zuweisen
+                            current.Left.Parent = current.Parent; // Neuen Vaterknoten dem Nachfolgerknoten zuweisen
+                            return true;
+                        }
+                    }
+                    if (current.Parent.Left == null && current == current.Parent.Right)  // 2. Variante: current hat einen rechten Bruderknoten
+                    {
+                        if (current.Right != null)  // Falls current Nachfolger rechts ist
+                        {
+                            current.Parent.Right = current.Right; // Neuen Kindknoten dem Vaterknoten zuweisen
+                            current.Right.Parent = current.Parent; // Neuen Vaterknoten dem Nachfolgerknoten zuweisen
+                            return true;
+                        }
+                        if (current.Left != null)   // Falls current Nachfolger links ist
+                        {
+                            current.Parent.Right = current.Left; // Neuen Kindknoten dem Vaterknoten zuweisen   
+                            current.Left.Parent = current.Parent; // Neuen Vaterknoten dem Nachfolgerknoten zuweisen
+                            return true;
+                        }
+                    }
                 }
 
-                // zu löschender knoten hat links einen Nachfolger
-                else 
+                if (current.Parent.Left != null)
                 {
-                    current.Left.Parent = current.Parent; // Verbinde Kind mit Elternelement von Current
-                    current.Left = null; 
+                    if (current.Parent.Right != null && current == current.Parent.Left)   // 1. Variante: current hat einen linken Bruderknoten
+                    {
+                        // Prüfen welche Seite der Nachfolger von current (zu löschendem Element) ist
+                        if (current.Right != null)  // Falls current Nachfolger rechts ist
+                        {
+                            current.Parent.Left = current.Right; // Neuen Kindknoten dem Vaterknoten zuweisen
+                            current.Right.Parent = current.Parent; // Neuen Vaterknoten dem Nachfolgerknoten zuweisen
+                            return true;
+                        }
+                        if (current.Left != null)   // Falls current Nachfolger links ist
+                        {
+                            current.Parent.Left = current.Left; // Neuen Kindknoten dem Vaterknoten zuweisen           
+                            current.Left.Parent = current.Parent; // Neuen Vaterknoten dem Nachfolgerknoten zuweisen       
+                            return true;
+                        }
+                    }
+                    if (current.Parent.Right == null && current == current.Parent.Left)   // 2.Variante: current hat einen rechten Bruderknoten
+                    {
+                        if (current.Right != null)  // Falls current Nachfolger rechts ist
+                        {
+                            current.Parent.Left = current.Right; // Neuen Kindknoten dem Vaterknoten zuweisen
+                            current.Right.Parent = current.Parent; // Neuen Vaterknoten dem Nachfolgerknoten zuweisen
+                            return true;
+                        }
+                        if (current.Left != null)   // Falls current Nachfolger links ist
+                        {
+                            current.Parent.Left = current.Left; // Neuen Kindknoten dem Vaterknoten zuweisen    
+                            current.Left.Parent = current.Parent; // Neuen Vaterknoten dem Nachfolgerknoten zuweisen
+                            return true;
+                        }
+                    }
                 }
-
-                Console.WriteLine("Das zu löschende ELement ({0}) war ein Knoten mit EINEM Nachfolger und wurde gelöscht",x);
-                return true; 
-
             }
 
             // 4. Fall: zu löschender Knoten hat ZWEI Nachfolger
