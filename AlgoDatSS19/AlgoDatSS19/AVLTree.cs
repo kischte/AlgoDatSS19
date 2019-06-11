@@ -20,6 +20,7 @@ namespace AlgoDatSS19
 
                 return hinzugefuegt;
             }
+            return hinzugefuegt;
         } 
 
         // Balancefaktor errechnen
@@ -178,7 +179,7 @@ namespace AlgoDatSS19
             return geloescht; 
         }
 
-        public int GetHeight(Node n)
+        public override int GetHeight(Node n)
         {
             if (n != null)
             {
