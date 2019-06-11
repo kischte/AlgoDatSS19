@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 //implements a quadratic probing hash table
 class HashTabQuadProb : AlgoDatSS19.ISet
