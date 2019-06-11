@@ -39,23 +39,19 @@ class HashTabQuadProb : AlgoDatSS19.ISet
     }
     public bool Search(int key)
     {
-        int hash = key % size;
-        while (table[hash] != null && table[hash].getkey() % size != key % size)
+
+        int hash = key % maxSize;
+        while (table[hash] != null && table[hash].getkey() != key)
         {
-            hash = (hash + 1) % size;
+            hash = (hash + 1) % maxSize;
         }
-        HashNode current = table[hash];
-        while (current.getkey() != key && current.getNextNode() != null)
+        if (table[hash] == null)
         {
-            current = current.getNextNode();
-        }
-        if (current.getkey() == key)
-        {
-            return true;
+            return false;
         }
         else
         {
-            return false;
+            return true;
         }
     }
     public string retrieve(int key)
