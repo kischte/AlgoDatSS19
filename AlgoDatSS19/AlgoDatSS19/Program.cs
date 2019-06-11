@@ -204,6 +204,8 @@ namespace AlgoDatSS19
               Console.WriteLine("Sie haben Search ausgewählt");
               Console.WriteLine("Bitte geben Sie die Zahl ein, die gesucht werden soll:");
 
+              wert = Convert.ToInt32(Console.ReadLine());
+
               if (feedback == true)
               {
                 Console.WriteLine("Zahl {0} wurde gefunden:", wert);
@@ -216,6 +218,8 @@ namespace AlgoDatSS19
             case 3:
               Console.WriteLine("Sie haben Delete ausgewählt");
               Console.WriteLine("Bitte geben Sie die Zahl ein, die gelöscht werden soll:");
+
+              wert = Convert.ToInt32(Console.ReadLine());
 
               feedback = idict.Delete(wert);
               if (feedback)
