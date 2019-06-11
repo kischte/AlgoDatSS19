@@ -17,17 +17,17 @@ namespace AlgoDatSS19
       //Index i referenziert das mittlere Element
         i = (l + r) / 2;
 
-        //gesuchtes Element x ist kleiner als Mittelwert
+        //gesuchtes Element x ist größer als Mittelwert
         if (array[i] < x)
         {
-        //Array wird von links nach rechts durchsucht
+        //Array wird vom Mittelwert nach rechts durchsucht
           l = i + 1;
         }
 
-        //gesuchtes Element x ist größer als Mittelwert
+        //gesuchtes Element x ist kleiner als Mittelwert
         else
         {
-        //Array wird von rechts nach links durchsucht
+        //Array wird vom Mittelwert nach links durchsucht
           r = i - 1;
         }
       }
