@@ -1,59 +1,55 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AlgoDatSS19
 {
     class AVLTree : BinSearchTree, ISetSorted
-    {   
+    {
         // Einfügefunktion
         public override bool Insert(int x)
         {
-            bool hinzugefuegt = false; 
+            bool hinzugefuegt = false;
             if (base.Insert(x))
             {
-                hinzugefuegt = true; 
-                Node pointer = current; 
+                hinzugefuegt = true;
+                Node pointer = current;
                 Reorganisieren(pointer);
 
                 return hinzugefuegt;
             }
             return hinzugefuegt;
-        } 
+        }
 
         // Balancefaktor errechnen
-        public int GetBalanceFaktor(Node right, Node left) 
+        public int GetBalanceFaktor(Node right, Node left)
         {
             return GetHeight(right) - GetHeight(left);
-        }       
+        }
 
         // Links Rotation
         protected void LeftRotation(Node n)
         {
-            Node temp; 
+            Node temp;
 
             if (n != null)
             {
-                // Prüfen ob Elternelement Root ist, wenn ja: 
-                if (n.Parent == root) 
+                // Prüfen ob Elternelement Root ist, wenn ja:
+                if (n.Parent == root)
                 {
-                    temp = n.Left; 
-                    root = n; 
-                    root.Left = n.Parent; 
-                    n.Parent = null; 
-                    root.Left.Parent = root; 
-                    root.Left.Right = temp; 
+                    temp = n.Left;
+                    root = n;
+                    root.Left = n.Parent;
+                    n.Parent = null;
+                    root.Left.Parent = root;
+                    root.Left.Right = temp;
 
                     if (temp != null)
                     {
-                        root.Left.Right.Parent = root.Left; 
+                        root.Left.Right.Parent = root.Left;
                     }
                 }
 
                 // Wenn Elternelement nicht Root ist:
-                else 
+                else
                 {
                     temp = n.Left;
                     n.Left = n.Parent;
@@ -139,7 +135,7 @@ namespace AlgoDatSS19
                 n.Parent.Right.Right = n;
                 n.Parent = n.Parent.Right;
                 n.Left = null;
-                
+
                 // Dann Links Rotation
                 LeftRotation(n.Parent);
             }
@@ -165,45 +161,45 @@ namespace AlgoDatSS19
         // Löschfunktion
         public override bool Delete(int x)
         {
-            bool geloescht = false; 
+            bool geloescht = false;
 
             // Löschen des Elements
             if (base.Delete(x))
             {
-                geloescht = true; 
-                Node pointer = current; 
+                geloescht = true;
+                Node pointer = current;
                 Reorganisieren(pointer);
             }
 
             Console.WriteLine("Das Element ({0}) wurde erfolgreich gelöscht", x);
-            return geloescht; 
+            return geloescht;
         }
 
         public override int GetHeight(Node n)
         {
             if (n != null)
             {
-                return -1; 
+                return Math.Max(GetHeight(n.Left), GetHeight(n.Right)) + 1;
             }
-            return Math.Max(GetHeight(n.Left), GetHeight(n.Right)) + 1;
+            return 0;
         }
 
         public void Reorganisieren(Node pointer)
         {
             while (pointer != null)
             {
-                // Prüfen des Balancefaktors und Reorganisation des Baumes FALLS Ausgleichsbedingung verletzt
+                // Im Folgenden: Prüfen des Balancefaktors und Reorganisation des Baumes FALLS Ausgleichsbedingung verletzt
                 pointer.BalanceFaktor = GetBalanceFaktor(pointer.Right, pointer.Left);
 
-                // Ausgleichsbedingung verletzt, Baum ist Linkslastig 
+                // Ausgleichsbedingung verletzt, Baum ist Linkslastig
                 if (pointer.BalanceFaktor < -1)
                 {
-                    // 1. Fall: Links-Rechts Rotation erforderlich (a-- und b+ (a vater, b kind)) 
+                    // 1. Fall: Links-Rechts Rotation erforderlich (a-- und b+ (a vater, b kind))
                     if (pointer.BalanceFaktor == -2 && GetBalanceFaktor(pointer.Left.Right, pointer.Left.Left) >0)
                     {
                         Console.WriteLine("Der Baum ist unausgeglichen (linkslastig), es erfolgt eine Links-Rechts Rotation um ({0})", pointer.Left.Element);
                         LeftRightRotation(pointer.Left);
-                        return; 
+                        return;
                     }
 
                     // 2. Fall: Rechts Rotation erforderlich (a-- und b- (a vater, b kind))
@@ -212,10 +208,10 @@ namespace AlgoDatSS19
                         Console.WriteLine("Der Baum ist unausgeglichen (linkslastig), es erfolgt eine Rechts Rotation um ({0})", pointer.Left.Element);
                         RightRotation(pointer.Left);
                     }
-                    return; 
+                    return;
                 }
 
-                // Ausgleichsbedingung verletzt, Baum ist Rechtslastig 
+                // Ausgleichsbedingung verletzt, Baum ist Rechtslastig
                 if (pointer.BalanceFaktor > 1)
                 {
                     // 3. Fall: Rechts-Links-Rotation erforderlich (a++ und b- (a vater, b kind))
@@ -223,7 +219,7 @@ namespace AlgoDatSS19
                     {
                         Console.WriteLine("Der Baum ist unausgeglichen (rechtslastig), es erfolgt eine Rechts-Links Rotation um ({0})", pointer.Right.Element);
                         RightLeftRotation(pointer.Right);
-                        return; 
+                        return;
                     }
 
                     // 4. Fall: Links Rotation erforderlich (a++ und b+ (a vater, b kind))
@@ -232,11 +228,12 @@ namespace AlgoDatSS19
                         Console.WriteLine("Der Baum ist unausgeglichen (rechtslastig), es erfolgt eine Links Rotation um ({0})", pointer.Right.Element);
                         LeftRotation(pointer.Right);
                     }
-                    return; 
+                    return;
                 }
 
                 // Pointer durch AVL Baum nach oben navigieren
-                pointer = pointer.Parent; 
+                pointer = pointer.Parent;
+                return;
             }
         }
 

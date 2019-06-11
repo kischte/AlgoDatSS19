@@ -20,6 +20,7 @@ namespace AlgoDatSS19
             root = null;
         }
 
+        // nach Element x suchen
         public bool Search(int x)
         {
             LElement current = root;
@@ -52,19 +53,19 @@ namespace AlgoDatSS19
             }
         }
 
-
+        //Element x sortiert hinzufügen
         public void AddSorted(int x)
         {
 
             LElement newElement = new LElement(x);
 
-            if (root == null) //Wenn Liste leer ist
+            if (root == null)       //Wenn Liste leer ist
             {
                 root = new LElement(x);
                 return;
             }
 
-            //Vor dem erste x einfügen
+            //Vor dem ersten x einfügen
             if (newElement.x < root.x)
             {
 
@@ -73,9 +74,9 @@ namespace AlgoDatSS19
                 return;
 
             }
-            //Einfügestelle suchen
 
 
+            //Stelle zum Einfügen suchen
             LElement current = root;
 
             while (current.next != null && newElement.x > current.x)
@@ -86,11 +87,12 @@ namespace AlgoDatSS19
             current.next = newElement;
 
         }
-        abstract public bool Insert(int x);
+        abstract public bool Insert(int x);   //damit alle Unterklassen eine Methode Insert definieren müssen
 
+        //löschen eines Elementes
         public bool Delete(int x)
         {
-            if (Search(x) == true)
+            if (Search(x) == true)           //wenn x gefunden wurde, dann
             {
                 LElement current = root;
                 LElement previous = null;
@@ -112,6 +114,8 @@ namespace AlgoDatSS19
             }
             return false;
         }
+
+        //komplette Liste ausgeben
         public void Print()
         {
             LElement current = root;

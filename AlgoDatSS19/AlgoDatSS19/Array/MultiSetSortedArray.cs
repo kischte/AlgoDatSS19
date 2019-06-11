@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AlgoDatSS19
 {
@@ -28,7 +24,7 @@ namespace AlgoDatSS19
           l = i + 1;
         }
 
-        //gesuchtes Element x ist größer als Mittelwert 
+        //gesuchtes Element x ist größer als Mittelwert
         else
         {
         //Array wird von rechts nach links durchsucht
@@ -56,7 +52,7 @@ namespace AlgoDatSS19
       {
         return false;
       }
-      //Sortiertes Einfügen von Element x in Array 
+      //Sortiertes Einfügen von Element x in Array
       for (int i = 0; i < array.Length; i++)
       {
         if (array[i] >= x)
@@ -71,7 +67,7 @@ namespace AlgoDatSS19
           return true;
         }
 
-        //Falls das Array leer ist, füge x an Position 0 ein 
+        //Falls das Array leer ist, füge x an Position 0 ein
         else if (array[i] == 0)
         {
           array[i] = x;

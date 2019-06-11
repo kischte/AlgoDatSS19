@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AlgoDatSS19
 {
@@ -19,10 +15,11 @@ namespace AlgoDatSS19
             {
                 base.Insert(x);
 
-                // Testausgabe
-                Console.WriteLine("Priorität: ");
-
                 root.Prio = RndPrio(); // Random Priorität vergeben
+
+                // Testausgabe
+                //Console.WriteLine("Priorität: {0}", current.Prio);
+
                 return true;
             }
 
@@ -31,13 +28,14 @@ namespace AlgoDatSS19
             {
                 base.Insert(x);
 
-                // Testausgabe
-                Console.WriteLine("Priorität: ");
-
                 current.Prio = RndPrio(); // Random Priorität vergeben
+
+                // Testausgabe
+                Console.WriteLine("Priorität: {0}", current.Prio);
+
                 eingefuegt = true;
             }
-            
+
             //Treapbedinung herstellen
             Treapbedingung(current);
 
@@ -47,7 +45,7 @@ namespace AlgoDatSS19
         // Hilfsfunktion zum Herstellen der Treapbedingung
         public void Treapbedingung(Node n)
         {
-            // Prüfen ob Baum nicht leer, wenn nicht leer dann: 
+            // Prüfen ob Baum nicht leer, wenn nicht leer dann:
             if (n != null)
             {
                 // Solange Eltern Priorität(en) größer als Kind Priorität(en)
@@ -85,7 +83,6 @@ namespace AlgoDatSS19
                     RightRotation(pointer.Left);
                 else
                     LeftRotation(pointer.Right);
-                
             }
 
             // Gesuchtes bzw. zu löschendes Element als Blatt löschen
@@ -103,28 +100,28 @@ namespace AlgoDatSS19
         // Links Rotation
         protected void LeftRotation(Node n)
         {
-            Node temp; 
+            Node temp;
 
             if (n != null)
             {
-                // Prüfen ob Elternelement Root ist, wenn ja: 
-                if (n.Parent == root) 
+                // Prüfen ob Elternelement Root ist, wenn ja:
+                if (n.Parent == root)
                 {
-                    temp = n.Left; 
-                    root = n; 
-                    root.Left = n.Parent; 
-                    n.Parent = null; 
-                    root.Left.Parent = root; 
-                    root.Left.Right = temp; 
+                    temp = n.Left;
+                    root = n;
+                    root.Left = n.Parent;
+                    n.Parent = null;
+                    root.Left.Parent = root;
+                    root.Left.Right = temp;
 
                     if (temp != null)
                     {
-                        root.Left.Right.Parent = root.Left; 
+                        root.Left.Right.Parent = root.Left;
                     }
                 }
 
                 // Wenn Elternelement nicht Root ist:
-                else 
+                else
                 {
                     temp = n.Left;
                     n.Left = n.Parent;
