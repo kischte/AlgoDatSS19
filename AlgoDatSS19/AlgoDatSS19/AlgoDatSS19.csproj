@@ -64,6 +64,8 @@
     <Compile Include="Array\SupportArray.cs" />
     <Compile Include="List\SupportList.cs" />
     <Compile Include="Treap.cs" />
+    <Compile Include="Node.cs" />
+
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
