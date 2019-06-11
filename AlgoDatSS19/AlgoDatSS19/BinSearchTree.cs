@@ -185,14 +185,14 @@ namespace AlgoDatSS19
                 if(current.Right != null)
                 {
                     current.Right.Parent = current.Parent; // Verbinde Kind mit Elternelement von Current
-                    current.Right = null;
+                    current = null; 
                 }
 
                 // zu löschender knoten hat links einen Nachfolger
                 else 
                 {
                     current.Left.Parent = current.Parent; // Verbinde Kind mit Elternelement von Current
-                    current.Left = null; 
+                    current = null; 
                 }
 
                 Console.WriteLine("Das zu löschende ELement ({0}) war ein Knoten mit EINEM Nachfolger und wurde gelöscht",x);

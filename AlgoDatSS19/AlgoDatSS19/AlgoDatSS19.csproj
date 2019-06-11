@@ -55,17 +55,17 @@
     <Compile Include="Array\MultiSetSortedArray.cs" />
     <Compile Include="Array\MultiSetUnsortedArray.cs" />
     <Compile Include="List\MultiSetSortedLinkedList.cs" />
+    <Compile Include="List\MultiSetUnsortedList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Array\SetSortedArray.cs" />
     <Compile Include="Array\SetUnsortedArray.cs" />
+    <Compile Include="List\SetUnsortedList.cs" />
     <Compile Include="Array\SupportArray.cs" />
     <Compile Include="List\SupportList.cs" />
     <Compile Include="Treap.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="List\SetSortedLinkedList.cs" />
-	<Compile Include="List\SetUnsortedLinkedList.cs" />
-	 <Compile Include="List\MultiSetUnsortedLinkedList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
