@@ -216,7 +216,7 @@ namespace AlgoDatSS19
                 }
 
                 // Ausgleichsbedingung verletzt, Baum ist Rechtslastig 
-                if (pointer.Balancefaktor > 1)
+                if (pointer.BalanceFaktor > 1)
                 {
                     // 3. Fall: Rechts-Links-Rotation erforderlich (a++ und b- (a vater, b kind))
                     if (pointer.BalanceFaktor == 2 && GetBalanceFaktor(pointer.Right.Left, pointer.Right.Right) ==1)
