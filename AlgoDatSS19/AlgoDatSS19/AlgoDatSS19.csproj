@@ -54,6 +54,7 @@
     <Compile Include="ISetSorted.cs" />
     <Compile Include="Array\MultiSetSortedArray.cs" />
     <Compile Include="Array\MultiSetUnsortedArray.cs" />
+    <Compile Include="List\MultiSetSortedLinkedList.cs" />
     <Compile Include="List\MultiSetUnsortedList.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
@@ -65,7 +66,6 @@
     <Compile Include="List\SupportList.cs" />
     <Compile Include="Treap.cs" />
     <Compile Include="Node.cs" />
-
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
