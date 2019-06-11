@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //implements a quadratic probing hash table
-class HashTabQuadProb
+class HashTabQuadProb : AlgoDatSS19.ISet
 {
     class HashProbe
     {
@@ -37,6 +37,27 @@ class HashTabQuadProb
             table[i] = null;
         }
     }
+    public bool Search(int key)
+    {
+        int hash = key % size;
+        while (table[hash] != null && table[hash].getkey() % size != key % size)
+        {
+            hash = (hash + 1) % size;
+        }
+        HashNode current = table[hash];
+        while (current.getkey() != key && current.getNextNode() != null)
+        {
+            current = current.getNextNode();
+        }
+        if (current.getkey() == key)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public string retrieve(int key)
     {
         int hash = key % maxSize;
@@ -53,7 +74,12 @@ class HashTabQuadProb
             return table[hash].getdata();
         }
     }
-    public void insert(int key, string data)
+    public bool Insert(int key)
+    {
+        Console.Write("method not in use");
+        return false;
+    }
+    public void Insert(int key, string data)
     {
         if (!checkOpenSpace())//if no open spaces available
         {
@@ -79,7 +105,7 @@ class HashTabQuadProb
         }
         return isOpen;
     }
-    public bool delete(int key)
+    public bool Delete(int key)
     {
         int hash = key % maxSize;
         while (table[hash] != null && table[hash].getkey() != key)
@@ -96,7 +122,7 @@ class HashTabQuadProb
             return true;
         }
     }
-    public void print()
+    public void Print()
     {
         for (int i = 0; i < table.Length; i++)
         {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //implements a separate chaining hash table
-class HashTabSepChain
+class HashTabSepChain : AlgoDatSS19.ISet
 {
     class HashNode
     {
@@ -47,7 +47,12 @@ class HashTabSepChain
             table[i] = null;
         }
     }
-    public void insert(int key, string data)
+    public bool Insert(int key)
+    {
+        Console.Write("method not in use");
+        return false;
+    }
+    public bool Insert(int key, string data)
     {
         HashNode nObj = new HashNode(key, data);
         int hash = key % size;
@@ -59,12 +64,12 @@ class HashTabSepChain
         {
             nObj.setNextNode(table[hash].getNextNode());
             table[hash].setNextNode(nObj);
-            return;
+            return true;
         }
         else
         {
             table[hash] = nObj;
-            return;
+            return true;
         }
     }
     public string retrieve(int key)
@@ -88,7 +93,29 @@ class HashTabSepChain
             return "nothing found!";
         }
     }
-    public void delete(int key)
+
+    public bool Search(int key)
+    {
+        int hash = key % size;
+        while (table[hash] != null && table[hash].getkey() % size != key % size)
+        {
+            hash = (hash + 1) % size;
+        }
+        HashNode current = table[hash];
+        while (current.getkey() != key && current.getNextNode() != null)
+        {
+            current = current.getNextNode();
+        }
+        if (current.getkey() == key)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public bool Delete(int key)
     {
         int hash = key % size;
         while (table[hash] != null && table[hash].getkey() % size != key % size)
@@ -129,10 +156,11 @@ class HashTabSepChain
         if (!isRemoved)
         {
             Console.WriteLine("nothing found to delete!");
-            return;
+            return false;
         }
+        return true;
     }
-    public void print()
+    public void Print()
     {
         HashNode current = null;
         for (int i = 0; i < size; i++)
