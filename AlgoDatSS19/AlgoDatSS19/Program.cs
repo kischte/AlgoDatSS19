@@ -21,8 +21,7 @@ namespace AlgoDatSS19
         Console.WriteLine("4. ISetSorted");
         Console.WriteLine("5. Programm beenden");
 
-
-        int eingabe = -1;
+        int eingabe = Convert.ToInt32(Console.ReadLine());
 
         if (eingabe == 5)
         {
@@ -37,8 +36,10 @@ namespace AlgoDatSS19
             Console.WriteLine("1. MultiSetUnsortedLinkedList");
             Console.WriteLine("2. MultiSetUnsortedArray");
 
+            int eingabeDictionary1 = Convert.ToInt32(Console.ReadLine());
+
             //Weitere Auswahl
-            switch (eingabe)
+            switch (eingabeDictionary1)
             {
               case 1:
                 Console.WriteLine("Sie haben MultiSetUnsortedLinkedList ausgewählt");
@@ -62,8 +63,10 @@ namespace AlgoDatSS19
             Console.WriteLine("1. MultiSetSortedLinkedList");
             Console.WriteLine("2. MultiSetSortedArray");
 
+            int eingabeDictionary2 = Convert.ToInt32(Console.ReadLine());
+
             //weitere Auswahl
-            switch (eingabe)
+            switch (eingabeDictionary2)
             {
               case 1:
                 Console.WriteLine("Sie haben MultiSetSortedLinkedList ausgewählt");
@@ -86,8 +89,10 @@ namespace AlgoDatSS19
             Console.WriteLine("3. HashTableQuadProb");
             Console.WriteLine("4. HashTableSepChain");
 
+            int eingabeDictionary3 = Convert.ToInt32(Console.ReadLine());
+
             //weitere Auswahl
-            switch (eingabe)
+            switch (eingabeDictionary3)
             {
               case 1:
                 Console.WriteLine("Sie haben SetUnsortedLinkedList ausgewählt");
@@ -122,8 +127,10 @@ namespace AlgoDatSS19
             Console.WriteLine("4. AVL Baum");
             Console.WriteLine("5. Treap");
 
+            int eingabeDictionary4 = Convert.ToInt32(Console.ReadLine());
+
             //weitere Auswahl
-            switch (eingabe)
+            switch (eingabeDictionary4)
             {
               case 1:
                 Console.WriteLine("Sie haben SetSortedLinkedList ausgewählt");
@@ -166,8 +173,8 @@ namespace AlgoDatSS19
           Console.WriteLine("4. Print");
           Console.WriteLine("5. Zurück zum Menü");
 
-          string aktion = Console.ReadLine();
-          bool eingGueltig = false;
+          
+          int aktion = Convert.ToInt32(Console.ReadLine());
           bool feedback = false;
           int wert = 0;
           agieren = true;
@@ -175,10 +182,10 @@ namespace AlgoDatSS19
           switch (aktion)
           {
             //Aktion Insert
-            case "1":
+            case 1:
               Console.WriteLine("Sie haben Insert ausgewählt");
               Console.WriteLine("Geben Sie bitte einen Wert ein: ");
-
+              wert = Convert.ToInt32(Console.ReadLine());
               feedback = idict.Insert(wert); //Hier wird feedback gesetzt ob die Aktion erfolgreich war oder nicht
 
               //Zahl existiert bereits NUR FÜR SET; NICHT MULTISET
@@ -193,7 +200,7 @@ namespace AlgoDatSS19
               break;
 
             //Aktion Search
-            case "2":
+            case 2:
               Console.WriteLine("Sie haben Search ausgewählt");
               Console.WriteLine("Bitte geben Sie die Zahl ein, die gesucht werden soll:");
 
@@ -206,7 +213,7 @@ namespace AlgoDatSS19
               break;
 
             //Aktion Delete
-            case "3":
+            case 3:
               Console.WriteLine("Sie haben Delete ausgewählt");
               Console.WriteLine("Bitte geben Sie die Zahl ein, die gelöscht werden soll:");
 
@@ -221,13 +228,13 @@ namespace AlgoDatSS19
               break;
 
             //Aktion Print
-            case "4":
+            case 4:
               Console.WriteLine("Sie haben Print ausgewählt");
               idict.Print();
               break;
 
             //Aktion Zurück
-            case "5":
+            case 5:
               Console.WriteLine("Sie haben Zurück ausgewählt");
               agieren = false;
               break;
