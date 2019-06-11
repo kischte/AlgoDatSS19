@@ -19,7 +19,7 @@ namespace AlgoDatSS19
       }
 
       //Prüfen ob Element x schon vorhanden ist, Menge -> nicht doppelt vorhanden
-      if (Search(x))
+      if (Search(x) == true)
       {
         return false;
       }
