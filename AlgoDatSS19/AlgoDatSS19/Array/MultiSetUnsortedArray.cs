@@ -13,7 +13,7 @@ namespace AlgoDatSS19
     public bool Search(int x)
     {
       //Suche Element x in Array
-      for (int i = 0; i < array.Length; i++)
+      for (int i = 0; i < array.Length - 1; i++)
       {
         if (array[i] == x)
         {
@@ -32,7 +32,7 @@ namespace AlgoDatSS19
         return false;
       }
 
-      //Element x wird an erste freie Stelle eingefügt
+      //Element x wird an erste freie Stelle eingefügt 
       for (int i = 0; i < array.Length; i++)
       {
         if (array[i] == 0)
