@@ -13,13 +13,13 @@ namespace AlgoDatSS19
       while (run)
       {
         //Auswahlebene (Wörterbucharten)
-        Console.WriteLine("------Hauptmenü------");
-        Console.WriteLine("Auswahl der Wörterbuchart:");
-        Console.WriteLine("(1) IMultiSet");
-        Console.WriteLine("(2) IMultiSetSorted");
-        Console.WriteLine("(3) ISet");
-        Console.WriteLine("(4) ISetSorted");
-        Console.WriteLine("(5) Programm beenden");
+        Console.WriteLine("-- Menü --");
+        Console.WriteLine("Wählen Sie ein Dictionary aus:");
+        Console.WriteLine("1. IMultiSet");
+        Console.WriteLine("2. IMultiSetSorted");
+        Console.WriteLine("3. ISet");
+        Console.WriteLine("4. ISetSorted");
+        Console.WriteLine("5. Programm beenden");
 
 
         int eingabe = -1;
@@ -57,7 +57,7 @@ namespace AlgoDatSS19
           case 1:
             Console.WriteLine("Es wurde IMultiSet gewählt");
             Console.WriteLine("Auswahl des Wörterbuchs");
-            Console.WriteLine("(1) MultiSetUnsortedList");
+            Console.WriteLine("(1) MultiSetUnsortedLinkedList");
             Console.WriteLine("(2) MultiSetUnsortedArray");
 
             eingabeGueltig = false;
@@ -88,7 +88,7 @@ namespace AlgoDatSS19
             {
               case 1:
                 Console.WriteLine("Es wurde MultiSetUnsortedList gewählt");
-                idict = new MultiSetUnsortedList();
+                idict = new MultiSetUnsortedLinkedList();
                 break;
               case 2:
                 Console.WriteLine("Es wurde MultiSetUnsortedArray gewählt");
@@ -183,8 +183,8 @@ namespace AlgoDatSS19
             switch (eingabe)
             {
               case 1:
-                Console.WriteLine("Es wurde SetUnsortedList gewählt");
-                idict = new SetUnsortedList();
+                Console.WriteLine("Es wurde SetUnsortedLinkedList gewählt");
+                idict = new SetUnsortedLinkedList();
                 break;
               case 2:
                 Console.WriteLine("Es wurde SetUnsortedArray gewählt");
@@ -209,11 +209,11 @@ namespace AlgoDatSS19
           case 4:
             Console.WriteLine("Es wurde ISetSorted gewählt");
             Console.WriteLine("Auswahl des Wörterbuchs");
-            Console.WriteLine("(1) SetSortedLinkedList");
-            Console.WriteLine("(2) SetSortedArray");
-            Console.WriteLine("(3) binärer Suchbaum");
-            Console.WriteLine("(4) AVL Baum");
-            Console.WriteLine("(5) Treap");
+            Console.WriteLine("1. SetSortedLinkedList");
+            Console.WriteLine("2. SetSortedArray");
+            Console.WriteLine("3. binärer Suchbaum");
+            Console.WriteLine("4. AVL Baum");
+            Console.WriteLine("5. Treap");
 
             //eingabe = Convert.ToInt32(Console.ReadLine());
             eingabeGueltig = false;

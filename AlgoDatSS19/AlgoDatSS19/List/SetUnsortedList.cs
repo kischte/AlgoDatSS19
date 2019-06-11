@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlgoDatSS19
 {
-    class SetUnsortedList : SupportList, ISet
+    class SetUnsortedLinkedList : SupportList, ISet
     {
         public override bool Insert(int x)
         {
