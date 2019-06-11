@@ -8,9 +8,9 @@ namespace AlgoDatSS19
 {
     class MultiSetSortedLinkedList : SupportList, IMultiSet
     {
-        public override bool Insert(int node)
+        public override bool Insert(int x)
         {
-            AddSorted(node);
+            AddSorted(x);
             return true;
         }
     }
