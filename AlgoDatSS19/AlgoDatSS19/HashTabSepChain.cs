@@ -88,7 +88,7 @@ class HashTabSepChain
             return "nothing found!";
         }
     }
-    public void remove(int key)
+    public void delete(int key)
     {
         int hash = key % size;
         while (table[hash] != null && table[hash].getkey() % size != key % size)
