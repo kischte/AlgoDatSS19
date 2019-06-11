@@ -56,7 +56,6 @@
     <Compile Include="Array\MultiSetUnsortedArray.cs" />
     <Compile Include="List\MultiSetSortedLinkedList.cs" />
     <Compile Include="List\MultiSetUnsortedList.cs" />
-    <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Array\SetSortedArray.cs" />
