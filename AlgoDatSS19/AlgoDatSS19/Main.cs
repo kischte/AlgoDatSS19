@@ -8,7 +8,7 @@ namespace AlgoDatSS19
 {
   class Main
   {
-    static void Main()
+    static void AlgoDatMain()
     {
       IDictionary idict = null;
       bool run = true;
@@ -141,7 +141,7 @@ namespace AlgoDatSS19
             {
               case 1:
                 Console.WriteLine("Es wurde MultiSetSortedList gewählt");
-                idict = new MultiSetSortedList();
+                idict = new MultiSetSortedLinkedList();
                 break;
               case 2:
                 Console.WriteLine("Es wurde MultiSetSortedArray gewählt");
