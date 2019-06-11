@@ -19,7 +19,7 @@ namespace AlgoDatSS19
       }
 
       //Wenn Element x schon vorhanden, wird es nicht neu hinzugefügt
-      if (Search(x))
+      if (Search(x) == true)
       {
         return false;
       }
