@@ -19,10 +19,11 @@ namespace AlgoDatSS19
             {
                 base.Insert(x);
 
-                // Testausgabe
-                Console.WriteLine("Priorität: ");
-
                 root.Prio = RndPrio(); // Random Priorität vergeben
+
+                // Testausgabe
+                //Console.WriteLine("Priorität: {0}", current.Prio);
+
                 return true;
             }
 
@@ -31,10 +32,11 @@ namespace AlgoDatSS19
             {
                 base.Insert(x);
 
-                // Testausgabe
-                Console.WriteLine("Priorität: ");
-
                 current.Prio = RndPrio(); // Random Priorität vergeben
+
+                // Testausgabe
+                Console.WriteLine("Priorität: {0}", current.Prio);
+
                 eingefuegt = true;
             }
             
@@ -85,7 +87,6 @@ namespace AlgoDatSS19
                     RightRotation(pointer.Left);
                 else
                     LeftRotation(pointer.Right);
-                
             }
 
             // Gesuchtes bzw. zu löschendes Element als Blatt löschen
