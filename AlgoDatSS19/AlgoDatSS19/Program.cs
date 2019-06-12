@@ -155,7 +155,7 @@ namespace AlgoDatSS19
             Console.WriteLine("2. SetUnsortedArray");
             Console.WriteLine("3. HashTableQuadProb");
             Console.WriteLine("4. HashTableSepChain");
-
+                   
             eingabeGueltig = false;
             while (!eingabeGueltig)
             {
@@ -205,8 +205,8 @@ namespace AlgoDatSS19
                 break;
             }
             break;
-
-          case 4:
+                        
+                    case 4:
             Console.WriteLine("Sie haben ISetSorted ausgewählt");
             Console.WriteLine("Wählen Sie ein Dictionary aus:");
             Console.WriteLine("1. SetSortedLinkedList");
@@ -314,6 +314,7 @@ namespace AlgoDatSS19
                   Console.WriteLine("Es wurde keine Zahl eingegeben, bitte neue Zahl eingeben");
                 }
               }
+
               feedback = idict.Insert(wert); //Hier wird feedback gesetzt ob die Aktion erfolgreich war oder nicht
 
               //Zahl existiert bereits NUR FÜR SET; NICHT MULTISET
@@ -358,13 +359,22 @@ namespace AlgoDatSS19
               else
                 Console.WriteLine("Die Zahl {0} wurde nicht gefunden", wert);
               break;
-
             //Aktion Delete
+
             case "d":
             case "D":
               Console.WriteLine("Sie haben Delete ausgewählt");
-              Console.WriteLine("Bitte geben Sie die Zahl ein, die gelöscht werden soll.");
-              eingGueltig = false;
+                           
+                            if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
+                            {
+                                Console.WriteLine("Bitte geben Sie den Schlüssel ein, der mit seinen Daten gelöscht wird!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Bitte geben Sie die Zahl ein, die gelöscht werden soll.");
+                            }
+
+                            eingGueltig = false;
               while (!eingGueltig)
               {
                 try
@@ -386,7 +396,15 @@ namespace AlgoDatSS19
                   Console.WriteLine("Die Zahl {0} wurde gelöscht", wert);
                 }
                 else
-                  Console.WriteLine("Die Zahl {0} wurde nicht gefunden", wert);
+                                      if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
+                                {
+                                    Console.WriteLine("Der Schlüssel {0} wurde nicht gefunden", wert);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Die Zahl {0} wurde nicht gefunden", wert);
+                                }
+                              
               }
               break;
 
