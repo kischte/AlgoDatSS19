@@ -45,11 +45,9 @@ class HashTabSepChain : AlgoDatSS19.ISet
     }
     public bool Insert(int key)
     {
-        Console.Write("method not in use");
-        return false;
-    }
-    public bool Insert(int key, string data)
-    {
+        Console.WriteLine("Der Schlüssel " +key +" soll welchen Wert speichern?");
+
+        string data = Console.ReadLine();
         HashNode nObj = new HashNode(key, data);
         int hash = key % size;
         while (table[hash] != null && table[hash].getkey() % size != key % size)
@@ -67,7 +65,9 @@ class HashTabSepChain : AlgoDatSS19.ISet
             table[hash] = nObj;
             return true;
         }
+        Console.WriteLine("Der Schlüssel " + key + " entählt " +data);
     }
+
     public string retrieve(int key)
     {
         int hash = key % size;
@@ -161,12 +161,22 @@ class HashTabSepChain : AlgoDatSS19.ISet
         HashNode current = null;
         for (int i = 0; i < size; i++)
         {
+            int chainCounter = 0;
             current = table[i];
             while (current != null)
             {
-                Console.Write(current.getdata() + " ");
+                
+                if (chainCounter > 0)
+                {
+                    Console.Write(current.getdata() + " ");
+                }else
+                {
+                    Console.Write(current.getkey() + " " +current.getdata() + " ");
+                }
                 current = current.getNextNode();
+                chainCounter++;
             }
+
             Console.WriteLine();
         }
     }
