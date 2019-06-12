@@ -66,24 +66,16 @@ class HashTabQuadProb : AlgoDatSS19.ISet
             return table[hash].getdata();
         }
     }
+ 
     public bool Insert(int key)
     {
-        Console.Write("method not in use");
-        return false;
-    }
-    public void Insert(int key, string data)
-    {
-        if (!checkOpenSpace())//if no open spaces available
-        {
-            Console.WriteLine("table is at full capacity!");
-            return;
-        }
-        int hash = (key % maxSize);
-        while (table[hash] != null && table[hash].getkey() != key)
-        {
-            hash = (hash + 1) % maxSize;
-        }
-        table[hash] = new HashProbe(key, data);
+
+        Console.WriteLine("Der Schlüssel " + key + " soll welchen Wert speichern?");
+
+        string data = Console.ReadLine();
+        quadraticHashInsert(key, data);
+        return true;
+       
     }
     private bool checkOpenSpace()//checks for open spaces in the table for insertion
     {
@@ -124,7 +116,7 @@ class HashTabQuadProb : AlgoDatSS19.ISet
             }
             else
             {
-                Console.WriteLine("{0}", table[i].getdata());
+                Console.WriteLine("{0}{1}",i , table[i].getdata());
             }
         }
     }

@@ -294,10 +294,18 @@ namespace AlgoDatSS19
             case "i":
             case "I":
               Console.WriteLine("Sie haben Insert ausgewählt");
-              Console.WriteLine("Geben Sie bitte einen Wert ein: ");
+             
+                            if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
+                            {
+                                Console.WriteLine("Geben Sie bitte einen Schlüssel ein: ");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Geben Sie bitte einen Wert ein: ");
+                            }
 
 
-              eingGueltig = false;
+                            eingGueltig = false;
               while (!eingGueltig)
               {
                 try
@@ -332,7 +340,17 @@ namespace AlgoDatSS19
             case "s":
             case "S":
               Console.WriteLine("Sie haben Search ausgewählt");
-              Console.WriteLine("Bitte geben Sie die Zahl ein, die gesucht werden soll:");
+
+                            if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
+                            {
+                                Console.WriteLine("Bitte geben Sie den Schlüssel ein, der gesucht werden soll:");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Bitte geben Sie die Zahl ein, die gesucht werden soll:");
+                            }
+
+                            
               eingGueltig = false;
               while (!eingGueltig)
               {
@@ -354,10 +372,27 @@ namespace AlgoDatSS19
               }
               if (feedback == true)
               {
-                Console.WriteLine("Zahl {0} wurde gefunden", wert);
+                                if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
+                                {
+                                    Console.WriteLine("Schlüsseleintrag {0} wurde gefunden", wert);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Zahl {0} wurde gefunden", wert);
+                                }
+                                
               }
               else
-                Console.WriteLine("Die Zahl {0} wurde nicht gefunden", wert);
+                                if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
+                            {
+                                Console.WriteLine("Der Schlüssel {0} wurde nicht gefunden", wert);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Die Zahl {0} wurde nicht gefunden", wert);
+                            }
+
+                          
               break;
             //Aktion Delete
 
@@ -393,8 +428,17 @@ namespace AlgoDatSS19
                 feedback = idict.Delete(wert);
                 if (feedback)
                 {
-                  Console.WriteLine("Die Zahl {0} wurde gelöscht", wert);
-                }
+                 
+
+                                    if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
+                                    {
+                                        Console.WriteLine("Der Schlüssel {0} wurde mit seinem inhalt gelöscht", wert);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Die Zahl {0} wurde gelöscht", wert);
+                                    }
+                                }
                 else
                                       if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
                                 {
