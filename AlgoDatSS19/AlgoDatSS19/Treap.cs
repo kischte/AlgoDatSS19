@@ -94,7 +94,7 @@ namespace AlgoDatSS19
         public int RndPrio()
         {
             Random rnd = new Random();
-            return rnd.Next(1000);
+            return rnd.Next(100);
         }
 
         // Links Rotation

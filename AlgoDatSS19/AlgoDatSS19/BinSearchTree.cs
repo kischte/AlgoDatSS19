@@ -289,7 +289,7 @@ namespace AlgoDatSS19
             a.Element = c.Element;
             }
 
-        // Ausgabefunktion für Binäre- und AVL-Bäume
+        // Ausgabefunktion
         public virtual void Print()
         {
             // Prüfen ob Baum überhaupt vorhanden
