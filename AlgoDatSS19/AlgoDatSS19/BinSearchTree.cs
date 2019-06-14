@@ -315,10 +315,17 @@ namespace AlgoDatSS19
                 InOrder(n.Left);
             }
             TrennzeichenEinfuegen(n);
+
             if (n.Prio == 0)
+            {
                 Console.Write(n.Element);
+            }
+
             else
+            {
                 Console.Write("{0},{1}", n.Element, n.Prio);
+            }
+
             Console.WriteLine();
             if (n.Right != null)
             {

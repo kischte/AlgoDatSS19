@@ -64,7 +64,7 @@ namespace AlgoDatSS19
                     // 1. Fall: Links-Rechts Rotation erforderlich (a-- und b+ (a vater, b kind))
                     if (pointer.BalanceFaktor == -2 && GetBalanceFaktor(pointer.Left.Right, pointer.Left.Left) > 0)
                     {
-                        Console.WriteLine("Der Baum ist unausgeglichen (linkslastig), es erfolgt eine Links-Rechts Rotation um ({0})", pointer.Left.Element);
+                        Console.WriteLine("Der Baum ist unausgeglichen (linkslastig), es erfolgt eine Links-Rechts Rotation um ({0})", pointer.Left.Right.Element);
                         LeftRightRotation(pointer.Left);
                         return;
                     }
@@ -92,7 +92,7 @@ namespace AlgoDatSS19
                     // 4. Fall: Links Rotation erforderlich (a++ und b+ (a vater, b kind))
                     else
                     {
-                        Console.WriteLine("Der Baum ist unausgeglichen (rechtslastig), es erfolgt eine Links Rotation um ({0})", pointer.Right.Element);
+                        Console.WriteLine("Der Baum ist unausgeglichen (rechtslastig), es erfolgt eine Links Rotation um ({0})", pointer.Right.Left.Element);
                         LeftRotation(pointer.Right);
                     }
                     return;
