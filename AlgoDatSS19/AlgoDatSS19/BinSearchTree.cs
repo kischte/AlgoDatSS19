@@ -120,8 +120,6 @@ namespace AlgoDatSS19
         // Löschfunktion
         public virtual bool Delete(int x)
         {
-            int temp;
-
             // Prüfen ob zu löschendes Element im Baum existiert
 
             // Wenn Element nicht gefunden --> nichts löschen
@@ -336,13 +334,48 @@ namespace AlgoDatSS19
         //Hilfsfunktion für Printfunktion um Trennzeichen einzufügen
         public void TrennzeichenEinfuegen(Node n) 
         {
-            n.Height = GetHeight(n);
+            // Falls auszugebender Baum / Node kein AVL-Baum / Node ist, verwende GetHeight Methode
+            if (n.BalanceFaktor == -10)
+            {
+                n.Height = GetHeight(n);
+            }
+
+            // Wenn 
+            else
+            {
+                n.Height = GetHeightAVL(n); 
+            }
+
 
             // für jede Ebene einen Strich einfügen
             for (int i = 0; i < n.Height; i++)
             {
                 Console.Write("-");
             }
+        }
+
+        public virtual int GetHeightAVL(Node n)
+        {
+            int Height = 0;
+
+            if (n != null)
+            {
+                // Prüfen auf welcher Ebene ein Element liegt
+                if (n.Parent == null)
+                {
+                    return 0;
+                }
+                while (n.Parent != null)
+                {
+                    Height++;
+                    n = n.Parent;
+                }
+
+                // Ebene/Höhe zurück geben
+                return Height;
+            }
+
+            return Height;
         }
 
         //Hilfsfunktion für TrennzeichenEinfuegen um korrekte Anzahl der Trennstriche zu ermitteln

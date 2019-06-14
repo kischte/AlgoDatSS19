@@ -38,7 +38,9 @@ namespace AlgoDatSS19
         // Balancefaktor errechnen
         public int GetBalanceFaktor(Node right, Node left)
         {
-            return GetHeight(right) - GetHeight(left);
+            int BalanceFaktor = 0; 
+            BalanceFaktor =  GetHeight(right) - GetHeight(left);
+            return BalanceFaktor; 
         }
 
         // Höhe bis zu aktueller Node errechnen
@@ -84,7 +86,7 @@ namespace AlgoDatSS19
                     // 3. Fall: Rechts-Links-Rotation erforderlich (a++ und b- (a vater, b kind))
                     if (pointer.BalanceFaktor == 2 && GetBalanceFaktor(pointer.Right.Left, pointer.Right.Right) ==1)
                     {
-                        Console.WriteLine("Der Baum ist unausgeglichen (rechtslastig), es erfolgt eine Rechts-Links Rotation um ({0})", pointer.Right.Element);
+                        Console.WriteLine("Der Baum ist unausgeglichen (rechtslastig), es erfolgt eine Rechts-Links Rotation um ({0})", pointer.Right.Left.Element);
                         RightLeftRotation(pointer.Right);
                         return;
                     }
@@ -92,7 +94,7 @@ namespace AlgoDatSS19
                     // 4. Fall: Links Rotation erforderlich (a++ und b+ (a vater, b kind))
                     else
                     {
-                        Console.WriteLine("Der Baum ist unausgeglichen (rechtslastig), es erfolgt eine Links Rotation um ({0})", pointer.Right.Left.Element);
+                        Console.WriteLine("Der Baum ist unausgeglichen (rechtslastig), es erfolgt eine Links Rotation um ({0})", pointer.Right.Element);
                         LeftRotation(pointer.Right);
                     }
                     return;

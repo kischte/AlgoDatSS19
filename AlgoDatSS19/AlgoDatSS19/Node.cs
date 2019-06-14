@@ -21,7 +21,7 @@ namespace AlgoDatSS19
             this.Element = x;
             Left = null;
             Right = null;
-            BalanceFaktor = -1; 
+            BalanceFaktor = -10; 
         }
     }
 }
