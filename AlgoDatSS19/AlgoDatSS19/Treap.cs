@@ -2,7 +2,7 @@ using System;
 
 namespace AlgoDatSS19
 {
-    class Treap : BinSearchTree, ISetSorted
+    class Treap : BinSearchTree
     {
         // Einfügefunktion
         public override bool Insert(int x)

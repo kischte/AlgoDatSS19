@@ -2,7 +2,7 @@ using System;
 
 namespace AlgoDatSS19
 {
-    class AVLTree : BinSearchTree, ISetSorted
+    class AVLTree : BinSearchTree
     {
         // Einfügefunktion
         public override bool Insert(int x)
