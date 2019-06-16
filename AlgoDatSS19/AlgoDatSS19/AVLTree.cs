@@ -9,13 +9,12 @@ namespace AlgoDatSS19
         {
             bool hinzugefuegt = false;
 
+            // Einfügen des Elements
             if (base.Insert(x)) // Wenn Einfügen erfolgreich
             {
                 hinzugefuegt = true;
                 Node pointer = current;
                 Reorganisieren(pointer); // Nach Einfügen Reorganisieren
-
-                return hinzugefuegt;
             }
             return hinzugefuegt;
         }
@@ -30,7 +29,7 @@ namespace AlgoDatSS19
             {
                 geloescht = true;
                 Node pointer = current;
-                Reorganisieren(pointer);
+                Reorganisieren(pointer); // Nach Löschen Reorganisieren
             }
             return geloescht;
         }
@@ -39,7 +38,10 @@ namespace AlgoDatSS19
         public int GetBalanceFaktor(Node right, Node left)
         {
             int BalanceFaktor = 0; 
+
+            // BalanceFaktor aus Höhe errechnen
             BalanceFaktor =  GetHeight(right) - GetHeight(left);
+
             return BalanceFaktor; 
         }
 
@@ -66,7 +68,7 @@ namespace AlgoDatSS19
                     // 1. Fall: Links-Rechts Rotation erforderlich (a-- und b+ (a vater, b kind))
                     if (pointer.BalanceFaktor == -2 && GetBalanceFaktor(pointer.Left.Right, pointer.Left.Left) > 0)
                     {
-                        Console.WriteLine("Der Baum ist unausgeglichen (linkslastig), es erfolgt eine Links-Rechts Rotation um ({0})", pointer.Left.Right.Element);
+                        Console.WriteLine("Der (Teil-)Baum ist unausgeglichen (linkslastig), es erfolgt eine Links-Rechts Rotation um ({0})", pointer.Left.Right.Element);
                         LeftRightRotation(pointer.Left);
                         return;
                     }
@@ -74,7 +76,7 @@ namespace AlgoDatSS19
                     // 2. Fall: Rechts Rotation erforderlich (a-- und b- (a vater, b kind))
                     else
                     {
-                        Console.WriteLine("Der Baum ist unausgeglichen (linkslastig), es erfolgt eine Rechts Rotation um ({0})", pointer.Left.Element);
+                        Console.WriteLine("Der (Teil-)Baum ist unausgeglichen (linkslastig), es erfolgt eine Rechts Rotation um ({0})", pointer.Left.Element);
                         RightRotation(pointer.Left);
                     }
                     return;
@@ -86,7 +88,7 @@ namespace AlgoDatSS19
                     // 3. Fall: Rechts-Links-Rotation erforderlich (a++ und b- (a vater, b kind))
                     if (pointer.BalanceFaktor == 2 && GetBalanceFaktor(pointer.Right.Left, pointer.Right.Right) ==1)
                     {
-                        Console.WriteLine("Der Baum ist unausgeglichen (rechtslastig), es erfolgt eine Rechts-Links Rotation um ({0})", pointer.Right.Left.Element);
+                        Console.WriteLine("Der (Teil-)Baum ist unausgeglichen (rechtslastig), es erfolgt eine Rechts-Links Rotation um ({0})", pointer.Right.Left.Element);
                         RightLeftRotation(pointer.Right);
                         return;
                     }
@@ -94,12 +96,11 @@ namespace AlgoDatSS19
                     // 4. Fall: Links Rotation erforderlich (a++ und b+ (a vater, b kind))
                     else
                     {
-                        Console.WriteLine("Der Baum ist unausgeglichen (rechtslastig), es erfolgt eine Links Rotation um ({0})", pointer.Right.Element);
+                        Console.WriteLine("Der (Teil-)Baum ist unausgeglichen (rechtslastig), es erfolgt eine Links Rotation um ({0})", pointer.Right.Element);
                         LeftRotation(pointer.Right);
                     }
                     return;
                 }
-
                 // Pointer durch AVL Baum nach oben navigieren
                 pointer = pointer.Parent;
             }
@@ -108,7 +109,7 @@ namespace AlgoDatSS19
         // Links Rotation
         protected void LeftRotation(Node n)
         {
-            Node temp;
+            Node temp; // temporäre Node welche zum Rotieren benötigt wird
 
             if (n != null)
             {
@@ -210,9 +211,6 @@ namespace AlgoDatSS19
             if (n != null)
             {
                 //Erst Rechts Rotation
-                //RightRotation(n.Parent);
-
-                
                 n.Parent.Right = n.Left;
                 n.Left.Parent = n.Parent;
                 n.Parent.Right.Right = n;
@@ -231,8 +229,6 @@ namespace AlgoDatSS19
             if (n != null)
             {
                 // Erst Links Rotation
-                //LeftRotation(n.Parent);
-                
                 n.Parent.Left = n.Right;
                 n.Right.Parent = n.Parent;
                 n.Parent.Left.Left = n;
