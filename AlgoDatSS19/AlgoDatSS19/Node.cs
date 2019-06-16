@@ -21,7 +21,7 @@ namespace AlgoDatSS19
             this.Element = x;
             Left = null;
             Right = null;
-            BalanceFaktor = -10; 
+            BalanceFaktor = -10; // zur Unterscheidung bei der Ausgabe von AVL und Co  
         }
     }
 }
