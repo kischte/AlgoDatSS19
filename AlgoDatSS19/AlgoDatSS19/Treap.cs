@@ -10,36 +10,49 @@ namespace AlgoDatSS19
             bool eingefuegt = false;
             Node pointer = current;
 
-            // Prüfen ob Struktur schon vorhanden, wenn nein dann Wurzel anlegen/einfügen:
-            if (root == null)
+            // Prüfen
+            if (base.Search(x))
             {
-                base.Insert(x);
-
-                root.Prio = RndPrio(); // Random Priorität vergeben
-
-                // Testausgabe
-                //Console.WriteLine("Priorität: {0}", current.Prio);
-
-                return true;
+                Console.WriteLine("Das einzufügende Element ist bereits vorhanden und wird nicht erneut eingefügt.");
+                return eingefuegt; 
             }
 
-            // Wenn Baumstruktur schon vorhanden, dann einfügen
             else
             {
-                base.Insert(x);
 
-                current.Prio = RndPrio(); // Random Priorität vergeben
+                // Prüfen ob Struktur schon vorhanden, wenn nein dann Wurzel anlegen/einfügen:
+                if (root == null)
+                {
+                    base.Insert(x);
 
-                // Testausgabe
-                Console.WriteLine("Priorität: {0}", current.Prio);
+                    root.Prio = RndPrio(); // Random Priorität vergeben
 
-                eingefuegt = true;
+                    // Testausgabe
+                    //Console.WriteLine("Priorität: {0}", current.Prio);
+
+                    return true;
+                }
+
+                // Wenn Baumstruktur schon vorhanden, dann einfügen
+                else
+                {
+                    base.Insert(x);
+
+                    current.Prio = RndPrio(); // Random Priorität vergeben
+
+                    // Testausgabe
+                    Console.WriteLine("Priorität: {0}", current.Prio);
+
+                    eingefuegt = true;
+                }
+
+                //Treapbedinung herstellen
+                Treapbedingung(current);
+
+                return eingefuegt;
+
+
             }
-
-            //Treapbedinung herstellen
-            Treapbedingung(current);
-
-            return eingefuegt;
         }
 
         // Hilfsfunktion zum Herstellen der Treapbedingung
@@ -94,7 +107,7 @@ namespace AlgoDatSS19
         public int RndPrio()
         {
             Random rnd = new Random();
-            return rnd.Next(100);
+            return rnd.Next(500);
         }
 
         // Links Rotation
