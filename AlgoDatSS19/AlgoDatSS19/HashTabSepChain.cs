@@ -65,7 +65,7 @@ class HashTabSepChain : AlgoDatSS19.ISet
             table[hash] = nObj;
             return true;
         }
-        Console.WriteLine("Der Schlüssel " + key + " entählt " +data);
+       
     }
 
     public string retrieve(int key)
@@ -104,6 +104,7 @@ class HashTabSepChain : AlgoDatSS19.ISet
         }
         if (current.getkey() == key)
         {
+            Console.WriteLine("Der Schlüssel " + key + " enthält: " + table[hash].getdata());
             return true;
         }
         else
