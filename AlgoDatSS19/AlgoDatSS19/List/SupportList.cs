@@ -77,7 +77,7 @@ namespace AlgoDatSS19
             //Stelle zum Einfügen suchen
             LElement current = root;
 
-            while (current.next != null && newElement.x >= current.x)
+            while (current.next != null && newElement.x >= current.x) // nur wenn Liste bereits existiert & neues Element größer als Anfangselement ist
             {
                 current = current.next;
             }
