@@ -125,7 +125,7 @@ namespace AlgoDatSS19
             // Wenn Element nicht gefunden --> nichts löschen
             if (!Search(x))
             {
-                Console.WriteLine("Das aus dem Baum zulöschende Element ({0}) existiert nicht.", x);
+                Console.WriteLine("Das aus dem Baum zulöschende Element ({0}) existiert nicht und kann daher nicht gelöscht werden", x);
                 return false; 
             }
 
@@ -307,13 +307,14 @@ namespace AlgoDatSS19
 
         public void InOrder(Node n)
         {
-            // 
+            // Gib das am weitesten links stehende Element aus
             if (n.Left != null)
             {
-                InOrder(n.Left);
+                InOrder(n.Left); 
             }
             TrennzeichenEinfuegen(n);
 
+            // Prüfe ob auszugebender Baum ein Treap ist oder nicht
             if (n.Prio == 0)
             {
                 Console.Write(n.Element);
@@ -335,15 +336,14 @@ namespace AlgoDatSS19
         public void TrennzeichenEinfuegen(Node n) 
         {
             // Falls auszugebender Baum / Node kein AVL-Baum / Node ist, verwende GetHeight Methode
-            if (n.BalanceFaktor == -10)
+            if (n.BalanceFaktor == -10) // ist AVL-Baum
             {
                 n.Height = GetHeight(n);
             }
-
-            // Wenn 
+ 
             else
             {
-                n.Height = GetHeightAVL(n); 
+                n.Height = GetHeightAVL(n); // ist NICHT AVL-Baum
             }
 
 
@@ -358,23 +358,24 @@ namespace AlgoDatSS19
         {
             int Height = 0;
 
+            // Aus irgendeinem Grund immer Null-Reference-Exception bei AVL-Bäumen
             if (n != null)
             {
                 // Prüfen auf welcher Ebene ein Element liegt
+
                 if (n.Parent == null)
                 {
                     return 0;
                 }
+
+                // Zähle Ebene für jedes Element
                 while (n.Parent != null)
                 {
                     Height++;
                     n = n.Parent;
                 }
-
-                // Ebene/Höhe zurück geben
                 return Height;
             }
-
             return Height;
         }
 
@@ -388,6 +389,8 @@ namespace AlgoDatSS19
             {
                 return 0;
             }
+
+            // Zähle Ebene für jedes Element
             while (n.Parent != null)
             {
                 Height++;
@@ -397,7 +400,5 @@ namespace AlgoDatSS19
             // Ebene/Höhe zurück geben
             return Height;
         }
-
     }
-    
 }

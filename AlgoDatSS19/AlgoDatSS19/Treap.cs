@@ -8,7 +8,7 @@ namespace AlgoDatSS19
         public override bool Insert(int x)
         {
             bool eingefuegt = false;
-            Node pointer = current;
+            Node pointer = current; // Hilfsnode welche auf aktuelle Node verweist
 
             // Prüfen
             if (base.Search(x))
@@ -25,9 +25,9 @@ namespace AlgoDatSS19
                 {
                     base.Insert(x);
 
-                    root.Prio = RndPrio(); // Random Priorität vergeben
+                    root.Prio = RndPrio(); // zufällige Priorität vergeben
 
-                    // Testausgabe
+                    // Testausgabe:
                     //Console.WriteLine("Priorität: {0}", current.Prio);
 
                     return true;
@@ -47,7 +47,7 @@ namespace AlgoDatSS19
                 }
 
                 //Treapbedinung herstellen
-                Treapbedingung(current);
+                TreapbedingungHerstellen(current);
 
                 return eingefuegt;
 
@@ -56,7 +56,7 @@ namespace AlgoDatSS19
         }
 
         // Hilfsfunktion zum Herstellen der Treapbedingung
-        public void Treapbedingung(Node n)
+        public void TreapbedingungHerstellen(Node n)
         {
             // Prüfen ob Baum nicht leer, wenn nicht leer dann:
             if (n != null)
@@ -99,11 +99,14 @@ namespace AlgoDatSS19
             }
 
             // Gesuchtes bzw. zu löschendes Element als Blatt löschen
-            base.Delete(pointer.Element);
-            geloescht = true;
+            if (base.Delete(pointer.Element))
+            {
+                geloescht = true;
+            }
             return geloescht;
         }
 
+        // Funktion zur Bestimmung der Priorität einer Node
         public int RndPrio()
         {
             Random rnd = new Random();
