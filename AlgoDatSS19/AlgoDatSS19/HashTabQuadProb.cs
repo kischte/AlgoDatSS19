@@ -47,6 +47,7 @@ class HashTabQuadProb : AlgoDatSS19.ISet
         }
         else
         {
+            Console.WriteLine("Der Schlüssel " + key + " enthält: " +table[hash].getdata());
             return true;
         }
     }
