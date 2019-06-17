@@ -13,7 +13,7 @@ namespace AlgoDatSS19
     public bool Search(int x)
     {
       //Suche Element x in Array
-      for (int i = 0; i < array.Length - 1; i++)
+      for (int i = 0; i < array.Length; i++)
       {
         if (array[i] == x)
         {
@@ -53,11 +53,13 @@ namespace AlgoDatSS19
         {
           for (int pos = i; pos < array.Length -1; pos++)
           {
-            //Wert x an Position i wird gelöscht 
-            array[i] = 0;
 
             //Positionen rechts von Element x werden um eins nach links verschoben
-            array[pos + 1] = array[pos];
+            array[pos] = array[pos + 1];
+
+            //Wert x an Position i wird gelöscht 
+            array[pos + 1] = 0;
+
           }
 
           return true;
