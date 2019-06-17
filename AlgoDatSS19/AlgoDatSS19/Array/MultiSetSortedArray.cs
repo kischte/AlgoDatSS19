@@ -30,11 +30,10 @@ namespace AlgoDatSS19
         //Array wird vom Mittelwert nach links durchsucht
           r = i - 1;
         }
-      }
-      //Array wird solange durchsucht,
-      //bis x gefunden oder Array komplett durchlaufen wurde
-      while (array[i] != x && l == r);
-
+        //Array wird solange durchsucht,
+        //bis x gefunden oder Array komplett durchlaufen wurde
+      } while (array[i] != x && l <= r);
+  
       if (array[i] == x)
       {
         return true;
@@ -47,13 +46,8 @@ namespace AlgoDatSS19
 
     public bool Insert(int x)
     {
-      //leeres Element x wird nicht eingefügt
-      if (x == 0)
-      {
-        return false;
-      }
       //Sortiertes Einfügen von Element x in Array
-      for (int i = 0; i < array.Length; i++)
+      for (int i = 0; i < array.Length -1; i++)
       {
         if (array[i] >= x)
         {
@@ -87,7 +81,7 @@ namespace AlgoDatSS19
         return false;
       }
 
-      for (int i = 0; i < array.Length; i++)
+      for (int i = 0; i < array.Length -1; i++)
       {
       //Element x wurde gefunden
         if (array[i] == x)

@@ -6,12 +6,6 @@ namespace AlgoDatSS19
 
     public new bool Insert(int x)
     {
-      //leeres Element x wird nicht eingefügt
-      if (x == 0)
-      {
-        return false;
-      }
-
       //Wenn Element x schon vorhanden, wird es nicht neu hinzugefügt
       if (Search(x) == true)
       {
@@ -19,7 +13,7 @@ namespace AlgoDatSS19
       }
 
       //Sortiertes Einfügen von Element x an entprechender Stelle
-      for (int i = 0; i < array.Length; i++)
+      for (int i = 0; i < array.Length -1; i++)
       {
         if (array[i] > x)
         {
@@ -31,6 +25,8 @@ namespace AlgoDatSS19
           array[i] = x;
           return true;
         }
+
+        //Falls das Array leer ist, füge x an Position 0 ein
         else if (array[i] == 0)
         {
           array[i] = x;
