@@ -10,11 +10,13 @@ namespace AlgoDatSS19
   {
     public int[] array;
 
+    //Größe des Arrays wird festgelegt
     public SupportArray(int size)
     {
       this.array = new int[size];
     }
 
+    //Print Methode, von der alle Array-Klassen erben
     public void Print()
     {
       for (int i = 0; i < array.Length; i++)

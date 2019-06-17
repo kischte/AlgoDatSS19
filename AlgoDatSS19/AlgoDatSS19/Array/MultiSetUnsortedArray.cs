@@ -26,12 +26,6 @@ namespace AlgoDatSS19
 
     public bool Insert(int x)
     {
-      //leeres Element x wird nicht eingefügt
-      if (x == 0)
-      {
-        return false;
-      }
-
       //Element x wird an erste freie Stelle eingefügt 
       for (int i = 0; i < array.Length; i++)
       {
@@ -57,13 +51,13 @@ namespace AlgoDatSS19
       {
         if (array[i] == x)
         {
-          for (int pos = i; pos < array.Length - 1; pos++)
+          for (int pos = i; pos < array.Length -1; pos++)
           {
-            //an Stelle x wird der letzte gefundene Wert eingetragen 
-            array[i] = pos - 1;
+            //Wert x an Position i wird gelöscht 
+            array[i] = 0;
 
-            //letzte Position wird frei(=0) gesetzt
-            array[pos - 1] = 0;
+            //Positionen rechts von Element x werden um eins nach links verschoben
+            array[pos + 1] = array[pos];
           }
 
           return true;

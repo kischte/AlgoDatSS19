@@ -12,12 +12,6 @@ namespace AlgoDatSS19
 
     public new bool Insert(int x)
     {
-      //leeres Element x wird nicht hinzugefügt
-      if (x == 0)
-      {
-        return false;
-      }
-
       //Prüfen ob Element x schon vorhanden ist, Menge -> nicht doppelt vorhanden
       if (Search(x) == true)
       {
@@ -25,15 +19,15 @@ namespace AlgoDatSS19
       }
 
       //Einfügen des Elements x 
-      for (int i = 0; i < array.Length; i++)
+      for (int i = 0; i < array.Length -1; i++)
       {
+        //suche nach 1.freiem Feld
         if (array[i] == 0)
         {
           array[i] = x;
           return true;
         }
       }
-
       return false;
     }
   }
