@@ -1,6 +1,6 @@
 ﻿namespace AlgoDatSS19
 {
-    class MultiSetSortedLinkedList : SupportList, ISetSorted
+    class MultiSetSortedLinkedList : SupportList, IMultiSetSorted
     {
         public override bool Insert(int x)
         {
