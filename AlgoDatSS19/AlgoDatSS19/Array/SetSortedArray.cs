@@ -4,6 +4,8 @@ namespace AlgoDatSS19
   {
     public SetSortedArray(int size) : base(size) { }
 
+    //Suchfunktion implementiert in MultiSetSortedArray
+
     public new bool Insert(int x)
     {
       //Wenn Element x schon vorhanden, wird es nicht neu hinzugefügt
