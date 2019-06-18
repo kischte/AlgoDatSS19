@@ -54,8 +54,20 @@ class HashTabSepChain : AlgoDatSS19.ISet
         }
         if (table[hash] != null && hash == table[hash].getkey() % size)
         {
+
+            //search through nbodes to see if key exists
+
+            if (Search(key))
+            {
+
+                return false;
+            }
+       
+
+
             nObj.setNextNode(table[hash].getNextNode());
             table[hash].setNextNode(nObj);
+            
             return true;
         }
         else
@@ -102,7 +114,7 @@ class HashTabSepChain : AlgoDatSS19.ISet
         }
         if (current.getkey() == key)
         {
-            Console.WriteLine("Der Schlüssel " + key + " enthält: " + table[hash].getdata());
+       
             return true;
         }
         else
@@ -117,6 +129,7 @@ class HashTabSepChain : AlgoDatSS19.ISet
         {
             hash = (hash + 1) % size;
         }
+
         //a current node pointer used for traversal, currently points to the head
         HashNode current = table[hash];
         bool isRemoved = false;
@@ -170,7 +183,7 @@ class HashTabSepChain : AlgoDatSS19.ISet
                     Console.Write(current.getdata() + " ");
                 }else
                 {
-                    Console.Write(i + " " +current.getdata() + " ");
+                    Console.Write(i + ": " +current.getdata() + " ");
                 }
                 current = current.getNextNode();
                 chainCounter++;
