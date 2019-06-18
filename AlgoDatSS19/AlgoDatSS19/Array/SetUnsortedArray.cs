@@ -27,6 +27,7 @@ namespace AlgoDatSS19
           array[i] = x;
           return true;
         }
+
       }
       return false;
     }
