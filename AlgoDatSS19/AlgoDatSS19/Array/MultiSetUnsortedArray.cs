@@ -49,6 +49,13 @@ namespace AlgoDatSS19
       //Element x wird nach Finden gelöscht 
       for (int i = 0; i < array.Length; i++)
       {
+        //Spezialfall wenn x am Ende des Arrays liegt
+        if(i == array.Length - 1)
+        {
+          array[i] = 0;
+          return true;
+        }
+
         if (array[i] == x)
         {
           for (int pos = i; pos < array.Length -1; pos++)

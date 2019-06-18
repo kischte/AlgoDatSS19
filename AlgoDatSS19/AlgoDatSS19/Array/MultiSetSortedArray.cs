@@ -6,11 +6,27 @@ namespace AlgoDatSS19
   {
     public MultiSetSortedArray(int size) : base(size) { }
 
+    //Sucht den letzten eingetragenen Wert 
+    private int SearchLastEntry()
+    {
+      for (int i = array.Length -1; i >= 0; i--)
+      {
+      //1.nicht leerer Eintrag wird zurück gegeben
+      if(array[i] != 0)
+        return i;
+      }
+      return -1; 
+    }
     public bool Search(int x)
     {
       int l, r, i;
       l = 0;
-      r = array.Length - 1;
+      r = SearchLastEntry();
+
+      //Fehlerfallabdeckung: Array ist leer
+      if (r == -1){
+        return false;
+      }
 
       do
       {
@@ -23,7 +39,6 @@ namespace AlgoDatSS19
         //Array wird vom Mittelwert nach rechts durchsucht
           l = i + 1;
         }
-
         //gesuchtes Element x ist kleiner als Mittelwert
         else
         {
@@ -81,15 +96,24 @@ namespace AlgoDatSS19
         return false;
       }
 
-      for (int i = 0; i < array.Length ; i++)
+      for (int i = 0; i < array.Length; i++)
       {
       //Element x wurde gefunden
         if (array[i] == x)
         {
-          for (int pos = i; pos < array.Length - 1 ; pos++)
+
+        //Sonderfall x ist der rechteste Wert
+        if(i == array.Length -1){
+            array[i] = 0;
+            return true;
+        }
+
+          for (int pos = i; pos < array.Length -1 ; pos++)
           {
-            //Verschieben der Elemente, die größer als x sind um eins nach links
+            //Positionen rechts von Element x werden um eins nach links verschieben
             array[pos] = array[pos + 1];
+
+            //Wert x an Position i wird gelöscht
             array[pos + 1] = 0;
           }
           return true;
