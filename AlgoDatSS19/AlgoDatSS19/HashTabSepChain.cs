@@ -170,7 +170,7 @@ class HashTabSepChain : AlgoDatSS19.ISet
                     Console.Write(current.getdata() + " ");
                 }else
                 {
-                    Console.Write(i + " " +current.getdata() + " ");
+                    Console.Write(i + ": " +current.getdata() + " ");
                 }
                 current = current.getNextNode();
                 chainCounter++;
