@@ -1,5 +1,5 @@
 ﻿using System;
-
+using AlgoDatSS19;
 //implements a separate chaining hash table
 class HashTabSepChain : AlgoDatSS19.ISet
 {
@@ -32,8 +32,14 @@ class HashTabSepChain : AlgoDatSS19.ISet
         }
     }
 
+
+
+
+    //SetUnsortedLinkedList next = new SetUnsortedLinkedList();
+
+
     HashNode[] table;
-   static int size; //our table size
+    static int size; //our table size
 
     public HashTabSepChain(int size)
     {
@@ -46,6 +52,7 @@ class HashTabSepChain : AlgoDatSS19.ISet
     }
     public bool Insert(int key)
     {
+
         HashNode nObj = new HashNode(key, key);
         int hash = key % size;
         while (table[hash] != null && table[hash].getkey() % size != key % size)
@@ -62,12 +69,12 @@ class HashTabSepChain : AlgoDatSS19.ISet
 
                 return false;
             }
-       
+
 
 
             nObj.setNextNode(table[hash].getNextNode());
             table[hash].setNextNode(nObj);
-            
+
             return true;
         }
         else
@@ -75,7 +82,7 @@ class HashTabSepChain : AlgoDatSS19.ISet
             table[hash] = nObj;
             return true;
         }
-       
+
     }
 
     public string retrieve(int key)
@@ -114,7 +121,7 @@ class HashTabSepChain : AlgoDatSS19.ISet
         }
         if (current.getkey() == key)
         {
-       
+
             return true;
         }
         else
@@ -177,13 +184,14 @@ class HashTabSepChain : AlgoDatSS19.ISet
             current = table[i];
             while (current != null)
             {
-                
+
                 if (chainCounter > 0)
                 {
                     Console.Write(current.getdata() + " ");
-                }else
+                }
+                else
                 {
-                    Console.Write(i + ": " +current.getdata() + " ");
+                    Console.Write(i + ": " + current.getdata() + " ");
                 }
                 current = current.getNextNode();
                 chainCounter++;
