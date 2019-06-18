@@ -193,12 +193,14 @@ namespace AlgoDatSS19
                 idict = new SetUnsortedArray(arraySize);
                 break;
               case 3:
-                Console.WriteLine("Es wurde HashTableQuadProb gewählt");
-                idict = new HashTabQuadProb();
+                Console.WriteLine("Es wurde HashTableQuadProb gewählt\nBitte geben sie die Größe der Tabelle ein:");
+                int maxSizeQuadProb = Convert.ToInt32(Console.ReadLine());
+                idict = new HashTabQuadProb(maxSizeQuadProb);
                 break;
               case 4:
-                Console.WriteLine("Es wurde HashTableSepChain gewählt");
-                idict = new HashTabSepChain();
+                Console.WriteLine("Es wurde HashTableSepChain gewählt\nBitte geben sie die Größe der Tabelle ein:");
+                                int maxSizeSepChain = Convert.ToInt32(Console.ReadLine());
+                                idict = new HashTabSepChain(maxSizeSepChain);
                 break;
               default:
                 Console.WriteLine("Ungültige Eingabe");
@@ -328,11 +330,25 @@ namespace AlgoDatSS19
               //Zahl existiert bereits NUR FÜR SET; NICHT MULTISET
               if (feedback == false)
               {
-                Console.WriteLine("Die eingegebene Zahl ist bereits vorhanden!");
+                         
+              Console.WriteLine("Die eingegebene Zahl ist bereits vorhanden!");
+                               
               }
               else
               {
-                Console.WriteLine("{0} wurde eingefügt", wert);
+                                if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
+                                {
+
+                                    if(HashTabQuadProb.checkOpenSpace() == false) Console.WriteLine("");
+                                    else Console.WriteLine("{0} wurde eingefügt", wert);
+                                }
+
+                                else
+                                {
+                                    Console.WriteLine("{0} wurde eingefügt", wert);
+                                }
+                             
+
               }
               break;
 
@@ -374,7 +390,7 @@ namespace AlgoDatSS19
               {
                                 if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
                                 {
-                                    Console.WriteLine("Schlüsseleintrag {0} wurde gefunden", wert);
+                                    Console.WriteLine("Schlüssel {0} wurde gefunden", wert);
                                 }
                                 else
                                 {
@@ -402,7 +418,7 @@ namespace AlgoDatSS19
                            
                             if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
                             {
-                                Console.WriteLine("Bitte geben Sie den Schlüssel ein, der mit seinen Daten gelöscht wird!");
+                                Console.WriteLine("Bitte geben Sie den Schlüssel ein der gelöscht werden soll!");
                             }
                             else
                             {
@@ -432,7 +448,7 @@ namespace AlgoDatSS19
 
                                     if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
                                     {
-                                        Console.WriteLine("Der Schlüssel {0} wurde mit seinem inhalt gelöscht", wert);
+                                        Console.WriteLine("Der Schlüssel {0} wurde gelöscht", wert);
                                     }
                                     else
                                     {

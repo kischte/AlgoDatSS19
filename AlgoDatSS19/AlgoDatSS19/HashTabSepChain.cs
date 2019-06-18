@@ -6,9 +6,9 @@ class HashTabSepChain : AlgoDatSS19.ISet
     class HashNode
     {
         int key;
-        string data;
+        int data;
         HashNode next;
-        public HashNode(int key, string data)
+        public HashNode(int key, int data)
         {
             this.key = key;
             this.data = data;
@@ -18,7 +18,7 @@ class HashTabSepChain : AlgoDatSS19.ISet
         {
             return key;
         }
-        public string getdata()
+        public int getdata()
         {
             return data;
         }
@@ -33,10 +33,11 @@ class HashTabSepChain : AlgoDatSS19.ISet
     }
 
     HashNode[] table;
-    const int size = 10;
+   static int size; //our table size
 
-    public HashTabSepChain()
+    public HashTabSepChain(int size)
     {
+        HashTabSepChain.size = size;
         table = new HashNode[size];
         for (int i = 0; i < size; i++)
         {
@@ -45,10 +46,7 @@ class HashTabSepChain : AlgoDatSS19.ISet
     }
     public bool Insert(int key)
     {
-        Console.WriteLine("Der Schlüssel " +key +" soll welchen Wert speichern?");
-
-        string data = Console.ReadLine();
-        HashNode nObj = new HashNode(key, data);
+        HashNode nObj = new HashNode(key, key);
         int hash = key % size;
         while (table[hash] != null && table[hash].getkey() % size != key % size)
         {
@@ -82,7 +80,7 @@ class HashTabSepChain : AlgoDatSS19.ISet
         }
         if (current.getkey() == key)
         {
-            return current.getdata();
+            return current.getdata().ToString();
         }
         else
         {
