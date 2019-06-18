@@ -10,6 +10,8 @@ namespace AlgoDatSS19
   {
     public SetUnsortedArray(int size) : base(size) { }
 
+    //Search-Funktion implementiert in MultiSetUnsortedArray
+
     public new bool Insert(int x)
     {
       //Prüfen ob Element x schon vorhanden ist, Menge -> nicht doppelt vorhanden
@@ -31,5 +33,8 @@ namespace AlgoDatSS19
       }
       return false;
     }
+
+    //Delete-Funktion implementiert in MultiSetUnsortedArray
+    //Print-Funktion implementiert in SupportArray
   }
 }
