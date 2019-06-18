@@ -93,10 +93,15 @@ class HashTabQuadProb : AlgoDatSS19.ISet
     }
     public bool Delete(int key)
     {
-        int hash = key % maxSize;
+
+
+        int j = 0;
+        int hash = HashTabQuadProb.hash(key);
         while (table[hash] != null && table[hash].getkey() != key)
         {
-            hash = (hash + 1) % maxSize;
+            j++;
+            hash = mod((HashTabQuadProb.hash(key) + (j * j)), maxSize);
+            if (table[hash] != null) hash = mod((HashTabQuadProb.hash(key) + ((j * j) * -1)), maxSize);
         }
         if (table[hash] == null)
         {
