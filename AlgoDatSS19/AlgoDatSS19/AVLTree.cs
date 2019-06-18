@@ -2,7 +2,7 @@ using System;
 
 namespace AlgoDatSS19
 {
-    class AVLTree : BinSearchTree, ISetSorted
+    class AVLTree : BinSearchTree
     {
         // Einfügefunktion
         public override bool Insert(int x)
@@ -109,35 +109,33 @@ namespace AlgoDatSS19
         // Links Rotation
         protected void LeftRotation(Node n)
         {
-            Node temp; // Hilfsnode zum Durchführen der Rotation
+            Node temp; // temporäre Node welche zum Rotieren benötigt wird
 
             if (n != null)
             {
                 // Prüfen ob Elternelement Root ist, wenn ja:
                 if (n.Parent == root)
                 {
-                    temp = n.Left; // speichere Node welche "wandert" in temp
-                    root = n; // setze n als neue Wurzel
-                    root.Left = n.Parent; // schiebe aktuelle Wurzel nach links(unten)
-                    n.Parent = null; // sage neuer Wurzel, dass sie kein Elternelement mehr hat
-                    root.Left.Parent = root; // sage alter Wurzel, dass neue Wurzel Elternelement ist
+                    temp = n.Left;
+                    root = n;
+                    root.Left = n.Parent;
+                    n.Parent = null;
+                    root.Left.Parent = root;
+                    root.Left.Right = temp;
 
-                    // Falls temp nicht leer --> es gibt einen wandernden Knoten
                     if (temp != null)
                     {
-                        root.Left.Right = temp; //speichere "wandernde" Node aus temp an neue Stelle Wurzel.Links.Rechts
-                        root.Left.Right.Parent = root.Left; // setze Elternknoten des gewanderten Elements 
+                        root.Left.Right.Parent = root.Left;
                     }
                 }
 
                 // Wenn Elternelement nicht Root ist:
                 else
                 {
-                    temp = n.Left; // speichere Node welche "wandert" in temp
-                    n.Left = n.Parent; // 
+                    temp = n.Left;
+                    n.Left = n.Parent;
                     n.Parent = n.Parent.Parent;
 
-                    // Prüfen ob n zukünfig links oder rechts des "Eltern-Eltern"-Elements ist
                     if (n.Element < n.Parent.Element)
                     {
                         n.Parent.Left = n;
@@ -149,8 +147,6 @@ namespace AlgoDatSS19
                     }
 
                     n.Left.Parent = n;
-
-                    // Wenn vorhanden, übergeben des linken Werts von n an n.links.rechts
                     n.Left.Right = temp;
                     if (temp != null)
                     {
@@ -163,35 +159,32 @@ namespace AlgoDatSS19
         // Rechts Rotation
         protected void RightRotation(Node n)
         {
-            Node temp; // Hilfsnode zum Durchführen der Rotation
-
+            Node temp;
             if (n != null)
             {
                 // Prüfen ob Elternelement Root ist, wenn ja:
                 if (n.Parent == root)
                 {
-                    temp = n.Right; // speichere Node welche "wandert" in temp
-                    root = n; // setze n als neue Wurzel
-                    root.Right = n.Parent; // schiebe aktuelle Wurzel nach rechts(unten)
-                    n.Parent = null; // sage neuer Wurzel, dass sie kein Elternelement mehr hat
-                    root.Right.Parent = root; // sage alter Wurzel, dass neue Wurzel Elternelement ist
+                    temp = n.Right;
+                    root = n;
+                    root.Right = n.Parent;
+                    n.Parent = null;
+                    root.Right.Parent = root;
+                    root.Right.Left = temp;
 
-                    // Falls temp nicht leer --> es gibt einen wandernden Knoten
                     if (temp != null)
                     {
-                        root.Right.Left = temp; //speichere "wandernde" Node aus temp an neue Stelle Wurzel.Rechts.Links
-                        root.Right.Left.Parent = root.Right; // setze Elternknoten des gewanderten Elements 
+                        root.Right.Left.Parent = root.Right;
                     }
                 }
 
                 // Wenn Elternelement nicht Root ist:
                 else
                 {
-                    temp = n.Right; // speichere Node welche "wandert" in temp
-                    n.Right = n.Parent; // setze 
+                    temp = n.Right;
+                    n.Right = n.Parent;
                     n.Parent = n.Parent.Parent;
 
-                    // Prüfen ob n zukünfig links oder rechts des "Eltern-Eltern"-Elements ist
                     if (n.Element < n.Parent.Element)
                     {
                         n.Parent.Left = n;
@@ -203,8 +196,6 @@ namespace AlgoDatSS19
                     }
 
                     n.Right.Parent = n;
-
-                    // Wenn vorhanden, übergeben des rechten Werts von n an n.rechts.links
                     n.Right.Left = temp;
                     if (temp != null)
                     {
