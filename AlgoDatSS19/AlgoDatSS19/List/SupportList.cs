@@ -2,7 +2,7 @@
 
 namespace AlgoDatSS19
 {
-    abstract public class SupportList
+    abstract public class SupportList   //abstract wegen abstrakter Insert Methode
     {
         class LElement
         {
@@ -14,7 +14,7 @@ namespace AlgoDatSS19
                 next = null;
             }
         }
-        LElement root;
+        LElement root;            //erstes Element der Liste
         public SupportList()
         {
             root = null;
@@ -24,7 +24,7 @@ namespace AlgoDatSS19
         public bool Search(int x)
         {
             LElement current = root;
-            while (current != null)
+            while (current != null)     //Wenn Liste nicht leer ist
             {
                 if (current.x == x)
                 {
@@ -38,18 +38,18 @@ namespace AlgoDatSS19
         //Einfügen als letztes Element
         public void Enque(int x)
         {
-            if (root == null)
+            if (root == null)       //Wenn Liste leer ist
             {
-                root = new LElement(x);
+                root = new LElement(x);   //als erstes Element einfügen
             }
             else
             {
                 LElement current = root;
-                while (current.next != null)
+                while (current.next != null)  //Liste so lange durchgehen, bis man beim letzten Element ist
                 {
                     current = current.next;
                 }
-                current.next = new LElement(x);
+                current.next = new LElement(x);  //hinter letztes Element einfügen
             }
         }
 
@@ -65,7 +65,7 @@ namespace AlgoDatSS19
                 return;
             }
 
-            //Vor dem ersten x einfügen
+            //Vor dem ersten x einfügen, wenn neues x kleiner als erstes x der Liste
             if (newElement.x <= root.x)
             {
                 newElement.next = root;
@@ -81,11 +81,11 @@ namespace AlgoDatSS19
             {
                 current = current.next;
             }
-            newElement.next = current.next;
-            current.next = newElement;
+            newElement.next = current.next; //um einen Platz in der Liste frei zu machen
+            current.next = newElement;  //Element an diesem Platz einfügen
 
         }
-        abstract public bool Insert(int x);   //damit alle Unterklassen eine Methode Insert definieren müssen
+        abstract public bool Insert(int x);   //damit alle Unterklassen eine eigene Methode Insert definieren müssen
 
         //löschen eines Elementes
         public bool Delete(int x)
@@ -100,13 +100,13 @@ namespace AlgoDatSS19
                     previous = current;
                     current = current.next;
                 }
-                if (current.x == root.x)
+                if (current.x == root.x)  //wenn es das erste Element ist
                 {
-                    root = root.next;
+                    root = root.next;  //dann wird das Zweite zum Ersten
                 }
                 else
                 {
-                    previous.next = current.next;
+                    previous.next = current.next; //hier wird gelöscht
                 }
                 return true;
             }
@@ -117,12 +117,12 @@ namespace AlgoDatSS19
         public void Print()
         {
             LElement current = root;
-            if (current == null)
+            if (current == null)        //wenn Liste leer ist
             {
                 Console.WriteLine(" Leere Liste ");
                 return;
             }
-            while (current.next != null)
+            while (current.next != null)  //bis ein Element kein Nachfolger mehr hat
             {
                 Console.WriteLine(current.x);
                 current = current.next;
