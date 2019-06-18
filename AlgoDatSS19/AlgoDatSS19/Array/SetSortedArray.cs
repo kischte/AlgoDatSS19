@@ -13,11 +13,11 @@ namespace AlgoDatSS19
       }
 
       //Sortiertes Einfügen von Element x an entprechender Stelle
-      for (int i = 0; i < array.Length -1; i++)
+      for (int i = 0; i < array.Length ; i++)
       {
         if (array[i] > x)
         {
-          for (int pos = array.Length - 1; pos >= i + 1; pos--)
+          for (int pos = array.Length ; pos >= i + 1; pos--)
           {
             //Alle Elemente rechts von x um eins nach rechts verschieben
             array[pos] = array[pos - 1];
@@ -36,6 +36,7 @@ namespace AlgoDatSS19
       return false;
     }
 
+    //Delete Funktion implementiert in MultiSetSortedArray
     //Print Funktion implementiert in SupportArray
   }
 }

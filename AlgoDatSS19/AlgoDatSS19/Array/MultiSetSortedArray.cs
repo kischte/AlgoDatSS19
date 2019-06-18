@@ -47,11 +47,11 @@ namespace AlgoDatSS19
     public bool Insert(int x)
     {
       //Sortiertes Einfügen von Element x in Array
-      for (int i = 0; i < array.Length -1; i++)
+      for (int i = 0; i < array.Length ; i++)
       {
         if (array[i] >= x)
         {
-          for (int pos = array.Length - 1; pos >= i + 1; pos--)
+          for (int pos = array.Length ; pos >= i + 1; pos--)
           {
             //Verschiebung aller Elemente > x um eins nach rechts
             array[pos] = array[pos - 1];
@@ -81,12 +81,12 @@ namespace AlgoDatSS19
         return false;
       }
 
-      for (int i = 0; i < array.Length -1; i++)
+      for (int i = 0; i < array.Length ; i++)
       {
       //Element x wurde gefunden
         if (array[i] == x)
         {
-          for (int pos = i; pos < array.Length - 1; pos++)
+          for (int pos = i; pos < array.Length - 1 ; pos++)
           {
             //Verschieben der Elemente, die größer als x sind um eins nach links
             array[pos] = array[pos + 1];
