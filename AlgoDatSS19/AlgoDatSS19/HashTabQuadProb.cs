@@ -143,14 +143,4 @@ class HashTabQuadProb : AlgoDatSS19.ISet
             return;
         }
     }
-
-    private int hash1(int key)
-    {
-        return key % maxSize;
-    }
-    private int hash2(int key)
-    {
-        //must be non-zero, less than array size, ideally odd
-        return 5 - key % 5;
-    }
 }
