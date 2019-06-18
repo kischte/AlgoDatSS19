@@ -5,28 +5,29 @@ class HashTabQuadProb : AlgoDatSS19.ISet
 {
     class HashProbe
     {
+        int hash;
         int key;
-        string data;
-        public HashProbe(int key, string data)
+        public HashProbe(int hash, int key)
         {
+            this.hash = hash;
             this.key = key;
-            this.data = data;
+        }
+        public int gethash()
+        {
+            return hash;
         }
         public int getkey()
         {
             return key;
         }
-        public string getdata()
-        {
-            return data;
-        }
     }
 
 
-    const int maxSize = 10; //our table size
-    HashProbe[] table;
-    public HashTabQuadProb()
+     static int maxSize; //our table size
+     static  HashProbe[] table;
+    public HashTabQuadProb(int maxSize)
     {
+        HashTabQuadProb.maxSize = maxSize;
         table = new HashProbe[maxSize];
         for (int i = 0; i < maxSize; i++)
         {
@@ -36,10 +37,14 @@ class HashTabQuadProb : AlgoDatSS19.ISet
     public bool Search(int key)
     {
 
-        int hash = key % maxSize;
+
+        int j = 0;
+        int hash = HashTabQuadProb.hash(key);
         while (table[hash] != null && table[hash].getkey() != key)
         {
-            hash = (hash + 1) % maxSize;
+            j++;
+            hash = mod((HashTabQuadProb.hash(key) + (j * j)), maxSize);
+            if (table[hash] != null) hash = mod((HashTabQuadProb.hash(key) + ((j * j) * -1)), maxSize);
         }
         if (table[hash] == null)
         {
@@ -47,11 +52,11 @@ class HashTabQuadProb : AlgoDatSS19.ISet
         }
         else
         {
-            Console.WriteLine("Der Schlüssel " + key + " enthält: " +table[hash].getdata());
+            Console.WriteLine("Der Schlüssel " + key + " ist im folgenden hash gespeichert: " +hash);
             return true;
         }
     }
-    public string retrieve(int key)
+    public int retrieve(int key)
     {
         int hash = key % maxSize;
         while (table[hash] != null && table[hash].getkey() != key)
@@ -60,25 +65,21 @@ class HashTabQuadProb : AlgoDatSS19.ISet
         }
         if (table[hash] == null)
         {
-            return "nothing found!";
+            return -1;
         }
         else
         {
-            return table[hash].getdata();
+            return table[hash].getkey();
         }
     }
  
     public bool Insert(int key)
     {
-
-        Console.WriteLine("Der Schlüssel " + key + " soll welchen Wert speichern?");
-
-        string data = Console.ReadLine();
-        quadraticHashInsert(key, data);
+        quadraticHashInsert(key);
         return true;
        
     }
-    private bool checkOpenSpace()//checks for open spaces in the table for insertion
+  public static bool checkOpenSpace()//checks for open spaces in the table for insertion
     {
         bool isOpen = false;
         for (int i = 0; i < maxSize; i++)
@@ -117,11 +118,22 @@ class HashTabQuadProb : AlgoDatSS19.ISet
             }
             else
             {
-                Console.WriteLine("{0}{1}",i , table[i].getdata());
+                Console.WriteLine("{0}: {1}",i , table[i].getkey());
             }
         }
     }
-    public void quadraticHashInsert(int key, string data)
+
+    public static int hash(int key)
+    {
+        return key % maxSize;
+    }
+
+    int mod(int x, int m)
+    {
+        return (x % m + m) % m;
+    }
+
+    public void quadraticHashInsert(int key)
     {
         //quadratic probing method
         if (!checkOpenSpace())//if no open spaces available
@@ -130,17 +142,24 @@ class HashTabQuadProb : AlgoDatSS19.ISet
             return;
         }
 
+
         int j = 0;
-        int hash = key % maxSize;
-        while (table[hash] != null && table[hash].getkey() != key)
+        int hash = HashTabQuadProb.hash(key);
+        while (table[hash] != null)
         {
             j++;
-            hash = (hash + j * j) % maxSize;
+            hash = mod((HashTabQuadProb.hash(key) + (j * j)), maxSize);
+            if (table[hash] != null) hash = mod((HashTabQuadProb.hash(key) + ((j * j) * -1)), maxSize); 
+          
         }
         if (table[hash] == null)
         {
-            table[hash] = new HashProbe(key, data);
+            table[hash] = new HashProbe(key, key);
             return;
         }
     }
+
+
+
+ 
 }
