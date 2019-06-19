@@ -330,8 +330,22 @@ namespace AlgoDatSS19
               //Zahl existiert bereits NUR FÜR SET; NICHT MULTISET
               if (feedback == false)
               {
-                         
-              Console.WriteLine("Die eingegebene Zahl ist bereits vorhanden!");
+
+                                if (idict.GetType().ToString().Equals("HashTabQuadProb") || idict.GetType().ToString().Equals("HashTabSepChain"))
+                                {
+
+
+
+                                    Console.WriteLine("Der eingegebene Schlüssel ist also schon vorhanden!");
+                                }
+
+                                else
+                                {
+
+                                    Console.WriteLine("Die eingegebene Zahl ist bereits vorhanden!");
+                                }
+
+                            
                                
               }
               else
