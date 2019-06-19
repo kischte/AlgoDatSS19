@@ -75,6 +75,8 @@ class HashTabQuadProb : AlgoDatSS19.ISet
  
     public bool Insert(int key)
     {
+      
+    
         quadraticHashInsert(key);
         return true;
        
@@ -140,6 +142,7 @@ class HashTabQuadProb : AlgoDatSS19.ISet
 
     public void quadraticHashInsert(int key)
     {
+      
         //quadratic probing method
         if (!checkOpenSpace())//if no open spaces available
         {
@@ -147,6 +150,11 @@ class HashTabQuadProb : AlgoDatSS19.ISet
             return;
         }
 
+        if (Search(key))
+        {
+            Console.WriteLine("Key already exists!");
+            return;
+        }
 
         int j = 0;
         int hash = HashTabQuadProb.hash(key);
